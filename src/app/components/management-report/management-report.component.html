@@ -1,0 +1,71 @@
+<div class="container-fluid px-4">
+
+    <div class="bottons">
+        <h1 class="mt-4 tittleGerencial">Informe Gerencial</h1>
+        <button type="button" id="btn-report-gerencial" class="btn btn-primary btnGerencial">Imprimir Reporte</button>
+    </div>
+
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Dashboard</li>
+    </ol>
+    <div class="row">
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-light text-black mb-4">
+                <div class="h3 card-body">Total Inversión</div>
+                <div class="h4 card-body font-weight-bold" id="totalInversion">12</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-black stretched-link" asp-page="/GestionInventario/Inventario">Ver más</a>
+                    <div class="small text-black"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-light text-black mb-4">
+                <div class="h3 card-body">Total Ganancia</div>
+                <div class="h4 card-body font-weight-bold" id="totalVentas">11</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-black stretched-link" asp-page="/GestionVentas/Ventas">Ver más</a>
+                    <div class="small text-black"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-light text-black mb-4">
+                <div class="h3 card-body">Total Productos vendidos</div>
+                <div class="h4 card-body font-weight-bold" id="totalProVendidos">100</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-black stretched-link" asp-page="/GestionVentas/Ventas">Ver más</a>
+                    <div class="small text-black"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-light text-black mb-4">
+                <div class="h3 card-body">Total Clientes</div>
+                <div class="h4 card-body font-weight-bold" id="totalClientes">10</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-black stretched-link" asp-page="/GestionClientes/GestionClientes">Ver más</a>
+                    <div class="small text-black"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-area me-1"></i> Inversión
+                </div>
+                <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar me-1"></i> Ventas
+                </div>
+                <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+            </div>
+        </div>
+    </div>
+</div>
