@@ -1,36 +1,21 @@
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <!-- Navbar Brand-->
-    <img class="logo" src="../assets/img/logo.jpeg" width="55" height="55" />
-    <a class="navbar-brand ps-3 tittlePageLogo" asp-page="/Bienvenida/Inicio">BikeStore</a
-  >
+  <!-- Navbar Brand-->
+  <img class="logo" src="../assets/img/logo.jpeg" width="55" height="55" />
+  <a class="navbar-brand ps-3 tittlePageLogo" asp-page="/Bienvenida/Inicio">BikeStore</a>
   <!-- Sidebar Toggle-->
-  <button
-    class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
-    id="sidebarToggle"
-    href="#!"
-  >
+  <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
     <i class="fas fa-bars"></i>
   </button>
   <!-- Navbar Search-->
-  <form
-    class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"
-  ></form>
+  <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"></form>
   <!-- Navbar-->
   <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
     <li class="nav-item dropdown">
-      <a
-        class="nav-link dropdown-toggle"
-        id="navbarDropdown"
-        href="#"
-        role="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-        ><i class="fas fa-user fa-fw"></i
-      ></a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+      <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
         <li>
-            <a class="dropdown-item" asp-page="/Index" asp-route-cerrar="1">Cerrar Session</a
-          >
+          <a class="dropdown-item" asp-page="/Index" asp-route-cerrar="1">Cerrar Session</a>
         </li>
       </ul>
     </li>
@@ -42,65 +27,63 @@
       <div class="sb-sidenav-menu">
         <div class="nav">
           <div class="sb-sidenav-menu-heading" id="core">Core</div>
-          <a
-            id="btn-reporte-gerencial"
-            class="nav-link"
-            asp-page="/ReporteGerencial/ReporteGerencial"
-          >
+          <a id="btn-reporte-gerencial" class="nav-link" asp-page="/ReporteGerencial/ReporteGerencial">
             <div class="sb-nav-link-icon">
               <i class="fas fa-tachometer-alt"></i>
             </div>
             Reporte Gerencial
           </a>
-            <div class="sb-sidenav-menu-heading">Opciones</div>
-            <a class="nav-link collapsed btn-gestion-user-icon" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                <div class="sb-nav-link-icon">
-                    <i class="fas fa-user fa-fw"></i>
-                </div>
-                Gestion Usuarios
-                <div class="sb-sidenav-collapse-arrow">
-                    <i class="fas fa-angle-down"></i>
-                </div>
-            </a>
-            <div class="collapse btn-gestion-user-icon" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link btn-trabajador" asp-page="/GestionUsuarios/Usuarios">Gestionar Trabajador</a>
-                    <a class="nav-link" asp-page="/GestionClientes/GestionClientes">Gestionar Clientes</a>
-                </nav>
+          <div class="sb-sidenav-menu-heading">Opciones</div>
+          <a class="nav-link collapsed btn-gestion-user-icon" href="#" data-bs-toggle="collapse"
+            data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+            <div class="sb-nav-link-icon">
+              <i class="fas fa-user fa-fw"></i>
             </div>
-            <a id="btn-ventas" class="nav-link" asp-page="/GestionVentas/Ventas">
-                <div class="sb-nav-link-icon">
-                    <i class="fas fa-chart-area"></i>
-                </div>
-                Gestion de Ventas
-            </a>
-            <a id="btn-productos" class="nav-link" asp-page="/GestionProductos/Productos">
-                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                Gestion de productos
-            </a>
-            <a id="btn-inventario" class="nav-link" asp-page="/GestionInventario/Inventario">
-                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                Gestion de Inventario
-            </a>
+            Gestion Usuarios
+            <div class="sb-sidenav-collapse-arrow">
+              <i class="fas fa-angle-down"></i>
             </div>
+          </a>
+          <div class="collapse btn-gestion-user-icon" id="collapseLayouts" aria-labelledby="headingOne"
+            data-bs-parent="#sidenavAccordion">
+            <nav class="sb-sidenav-menu-nested nav">
+              <a class="nav-link btn-trabajador" asp-page="/GestionUsuarios/Usuarios">Gestionar Trabajador</a>
+              <a class="nav-link" href="/clients">Gestionar Clientes</a>
+            </nav>
+          </div>
+          <a id="btn-ventas" class="nav-link" asp-page="/GestionVentas/Ventas">
+            <div class="sb-nav-link-icon">
+              <i class="fas fa-chart-area"></i>
             </div>
-</nav>
-</div>
-<div id="layoutSidenav_content">
+            Gestion de Ventas
+          </a>
+          <a id="btn-productos" class="nav-link" asp-page="/GestionProductos/Productos">
+            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+            Gestion de productos
+          </a>
+          <a id="btn-inventario" class="nav-link" asp-page="/GestionInventario/Inventario">
+            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+            Gestion de Inventario
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div id="layoutSidenav_content">
     <main role="main" class="pb-3">
-        <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
     </main>
 
     <footer class="py-4 bg-light mt-auto">
-        <div class="container-fluid px-4">
-            <div class="d-flex align-items-center justify-content-between small">
-                <div class="text-muted">Copyright &copy; BikeStore 2022</div>
-                <div>
-                    <a href="#">Privacy Policy</a> &middot;
-                    <a href="#">Terms &amp; Conditions</a>
-                </div>
-            </div>
+      <div class="container-fluid px-4">
+        <div class="d-flex align-items-center justify-content-between small">
+          <div class="text-muted">Copyright &copy; BikeStore 2022</div>
+          <div>
+            <a href="#">Privacy Policy</a> &middot;
+            <a href="#">Terms &amp; Conditions</a>
+          </div>
         </div>
+      </div>
     </footer>
-</div>
+  </div>
 </div>
