@@ -45,7 +45,7 @@
                     <div class="collapse btn-gestion-user-icon" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link btn-trabajador" asp-page="/GestionUsuarios/Usuarios">Gestionar Trabajador</a>
-                            <a class="nav-link" asp-page="/GestionClientes/GestionClientes">Gestionar Clientes</a>
+                            <a class="nav-link" [routerLink]="clients">Gestionar Clientes</a>
                         </nav>
                     </div>
                     <a id="btn-ventas" class="nav-link" asp-page="/GestionVentas/Ventas">

@@ -1,0 +1,259 @@
+<div class="container-fluid px-4">
+
+  <div class="tittleModules">
+    <h1>
+      Gestión de Clientes
+    </h1>
+  </div>
+
+  <div class="containerBottons">
+    <button type="button" id="btn-delete" class="btn btn-primary btn-crud" [hidden]="hiddenProperty" (click)="deleteClient()">
+      Eliminar
+    </button>
+    <button type="button" id="btn-update" class="btn btn-primary btn-crud" data-toggle="modal"
+      data-target="#ModalActualizar" [hidden]="hiddenProperty">
+      Editar
+    </button>
+    <button type="button" id="btn-create" class="btn btn-primary " data-toggle="modal" data-target="#ModalCrear">
+      Crear
+    </button>
+  </div>
+
+
+  <!-- ModalCrear -->
+  <div class="modal fade" id="ModalCrear" tabindex="-1" role="dialog" aria-labelledby="ModalCrearLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="titleModal">Registrar Cliente</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col">
+              <form method="post" class="needs-validation" novalidate>
+                <div class="form-group">
+                  <label for="typeDocument">Tipo de documento</label>
+                  <input type="text" [(ngModel)]="formCreateClient.typeDocument" name="formCreateClient.typeDocument" id="typeDocument"
+                    class="form-control" placeholder="Ingrese su tipo de documento" aria-describedby="invalid-feedback"
+                    minlength="2" maxlength="50" required>
+                  <div class="invalid-feedback">
+                    Ingrese el tipo de documento.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="cedula">Cédula</label>
+                  <input type="number" [(ngModel)]="formCreateClient.numDocument" name="formCreateClient.numDocument" id="numDocument"
+                    class="form-control" placeholder="Ingrese su numero de identificación"
+                    aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                  <div class="invalid-feedback">
+                    Ingrese el número de identificación.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="name">Nombres</label>
+                  <input type="text" [(ngModel)]="formCreateClient.name" name="formCreateClient.name" id="name" class="form-control"
+                    placeholder="Ingrese el nombre" aria-describedby="invalid-feedback" minlength="3" maxlength="50"
+                    required>
+                  <div class="invalid-feedback">
+                    Ingrese el nombre.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="apellido">Apellidos</label>
+                  <input type="text" [(ngModel)]="formCreateClient.lastName" name="formCreateClient.lastName" id="lastName"
+                    class="form-control" placeholder="Ingrese el apellido" aria-describedby="invalid-feedback"
+                    minlength="3" maxlength="50" required>
+                  <div class="invalid-feedback">
+                    Ingrese el apellido.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="numeroTelefono">Número de Teléfono</label>
+                  <input type="number" [(ngModel)]="formCreateClient.phoneNumber" name="formCreateClient.phoneNumber" id="phoneNumber"
+                    class="form-control" placeholder="Ingrese el Teléfono" aria-describedby="invalid-feedback"
+                    min="3000000000" max="3999999999" step="1" required>
+                  <div class="invalid-feedback">
+                    Ingrese el número de teléfono.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" [(ngModel)]="formCreateClient.email" name="formCreateClient.email" id="email" class="form-control"
+                    placeholder="Ingrese el email" aria-describedby="invalid-feedback" minlength="3" maxlength="50"
+                    required>
+                  <div class="invalid-feedback">
+                    Ingrese el email.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="direccion">Dirección</label>
+                  <input type="text" [(ngModel)]="formCreateClient.address" name="formCreateClient.address" id="address"
+                    class="form-control" placeholder="Ingrese dirección" aria-describedby="invalid-feedback"
+                    minlength="3" maxlength="50" required>
+                  <div class="invalid-feedback">
+                    Ingrese la dirección.
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary" id="btn-create-modal" (click)="createClient()">Crear</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ModalActualizar -->
+  <div class="modal fade" id="ModalActualizar" tabindex="-1" aria-labelledby="ModalActualizarLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="titleModal">Actualizar Cliente</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col">
+              <form id="formEditar" class="needs-validation" novalidate>
+                <input type="number" [(ngModel)]="formUpdateClient.id" name="formUpdateClient.id" id="idUpdate"
+                  class="form-control" readonly hidden>
+                <div class="form-group">
+                  <label for="typeDocument">Tipo de documento</label>
+                  <input type="text" [(ngModel)]="formUpdateClient.typeDocument" name="formUpdateClient.typeDocument"
+                    id="typeDocumentUpdate" class="form-control" placeholder="Ingrese su tipo de documento"
+                    aria-describedby="invalid-feedback" minlength="2" maxlength="50" required>
+                  <div class="invalid-feedback">
+                    Ingrese el tipo de documento.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="cedulaUpdate">Cédula</label>
+                  <input type="number" [(ngModel)]="formUpdateClient.numDocument" name="formUpdateClient.numDocument" id="numDocumentUpdate"
+                    class="form-control" onkeypress="return Solo_Numeros(event);"
+                    placeholder="Ingrese su numero de cedula" aria-describedby="invalid-feedback" minlength="3"
+                    maxlength="50" required>
+                  <div class="invalid-feedback">
+                    Ingrese el número de identificación.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="nombreUpdate">Nombres</label>
+                  <input type="text" [(ngModel)]="formUpdateClient.name" name="formUpdateClient.name" id="nameUpdate" class="form-control"
+                    onkeypress="return Solo_Texto(event);" placeholder="Ingrese el nombre"
+                    aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                  <div class="invalid-feedback">
+                    Ingrese el Nombre.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="apellidoUpdate">Apellidos</label>
+                  <input type="text" [(ngModel)]="formUpdateClient.lastName" name="formUpdateClient.lastName" id="lastNameUpdate" class="form-control"
+                    onkeypress="return Solo_Texto(event);" placeholder="Ingrese el apellido"
+                    aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                  <div class="invalid-feedback">
+                    Ingrese el Apellido.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="numeroTelefonoUpdate">Número de Teléfono</label>
+                  <input type="number" [(ngModel)]="formUpdateClient.phoneNumber" name="formUpdateClient.phoneNumber" id="phoneNumberUpdate" class="form-control"
+                    onkeypress="return Solo_Numeros(event);" placeholder="Ingrese el número de teléfono e.g. 320xxxxxxx"
+                    aria-describedby="invalid-feedback" min="3000000000" max="3999999999" step="1" required>
+                  <div class="invalid-feedback">
+                    Ingrese el número de teléfono.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="emailUpdate">Email</label>
+                  <input type="email" [(ngModel)]="formUpdateClient.email" name="formUpdateClient.email" id="emailUpdate" class="form-control"
+                    placeholder="Ingrese el email" aria-describedby="invalid-feedback" minlength="3" maxlength="50"
+                    required>
+                  <div class="invalid-feedback">
+                    Ingrese el email.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="direccionUpdate">Dirección</label>
+                  <input type="text" [(ngModel)]="formUpdateClient.address" name="formUpdateClient.address" id="addressUpdate" class="form-control"
+                    placeholder="Ingrese la dirección" aria-describedby="invalid-feedback" minlength="3" maxlength="50"
+                    required>
+                  <div class="invalid-feedback">
+                    Ingrese la dirección.
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" id="btn-update-modal" (click)="updateClient()" class="btn btn-primary">actualizar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabla general -->
+  <div class="card mb-4">
+    <div class="card-header">
+      <i class="fas fa-table me-1"></i>
+      Clients
+    </div>
+    <div class="card-body">
+      <table id="datatablesSimple">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Last name</th>
+            <th>Type Document</th>
+            <th>Number Document</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th hidden>Id</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Name</th>
+            <th>Last name</th>
+            <th>Type Document</th>
+            <th>Number Document</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th hidden>Id</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          <!-- 
+          dentro del tr siguiente se le ponía dentro este evento:
+          onclick="seleccionarRegistroTabla(this,'@item.Id','@item.Cedula','@item.Nombre','@item.Apellido','@item.NumeroTelefono','@item.Email',
+          '@item.Direccion');" 
+          -->
+          <tr *ngFor="let client of clientList"
+            (click)="RowSelected(client)">
+            <!-- (onclick)="selectRecordTable('client.id','client.name','client.lastName','client.typeDocument','client.numDocument','client.phoneNumber','client.email','client.address')"> -->
+            <td scope="row">{{client.name}}</td>
+            <td>{{client.lastName}}</td>
+            <td>{{client.typeDocument}}</td>
+            <td>{{client.numDocument}}</td>
+            <td>{{client.phoneNumber}}</td>
+            <td>{{client.email}}</td>
+            <td>{{client.address}}</td>
+            <td hidden>{{client.id}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

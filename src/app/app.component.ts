@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'BikeStoreV2-Frontend';
   managementReport = '/managementReport';
+  clients = '/clients';
 }
