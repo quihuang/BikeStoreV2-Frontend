@@ -10,6 +10,7 @@ import { ClientsComponent } from './components/clients/clients.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
+import { WorkersComponent } from './components/workers/workers.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DataTablesModule } from 'angular-datatables';
     HomeComponent,
     PageNotFoundComponent,
     ManagementReportComponent,
-    ClientsComponent
+    ClientsComponent,
+    WorkersComponent
   ],
   imports: [
     BrowserModule,
