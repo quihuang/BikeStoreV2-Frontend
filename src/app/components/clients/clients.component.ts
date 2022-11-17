@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientsModel } from 'src/app/models/clients-model';
 import { ClientsService } from 'src/app/services/clients.service';
+import { DataTablesModule } from 'angular-datatables';
 
 @Component({
   selector: 'app-clients',
@@ -22,7 +23,7 @@ export class ClientsComponent implements OnInit {
   formUpdateClient = new ClientsModel();
 
   // inyectamos el servicio de client en el constructor
-  constructor(private clientsService: ClientsService) {}
+  constructor(private clientsService: ClientsService) { }
 
   ngOnInit(): void {
     // al cargar la pagina ejecuta el método y envía los datos a la tabla

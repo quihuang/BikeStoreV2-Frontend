@@ -29,9 +29,12 @@
                             "src/assets/lib/css/styles.css",
                             "src/assets/css/jquery-confirm.min.css",
                             "src/styles.scss",
-                            "src/assets/css/site.css"
+                            "src/assets/css/site.css",
+                            "node_modules/datatables.net-dt/css/jquery.dataTables.css"
                         ],
                         "scripts": [
+                            "node_modules/jquery/dist/jquery.js",
+                            "node_modules/datatables.net/js/jquery.dataTables.js",
                             "src/assets/fonts/all.js",
                             "src/assets/lib/jquery/dist/jquery.min.js",
                             "src/assets/lib/js/scripts.js",
@@ -41,8 +44,6 @@
                             "src/assets/lib/assets/demo/chart-area-demo.js",
                             "src/assets/lib/assets/demo/chart-bar-demo.js",
                             "src/assets/js/jquery-confirm.min.js",
-                            "src/assets/js/simple-datatables@latest.js",
-                            "src/assets/lib/js/datatables-simple-demo.js",
                             "src/assets/js/site.js"
                         ]
                     },

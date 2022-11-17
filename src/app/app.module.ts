@@ -9,6 +9,7 @@ import { ManagementReportComponent } from './components/management-report/manage
 import { ClientsComponent } from './components/clients/clients.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { DataTablesModule } from 'angular-datatables';
 import { WorkersComponent } from './components/workers/workers.component';
 
 @NgModule({
@@ -21,12 +22,13 @@ import { WorkersComponent } from './components/workers/workers.component';
     WorkersComponent
   ],
   imports: [
-    BrowserModule, 
-    AppRoutingModule, 
-    HttpClientModule,  
+    BrowserModule,
+    DataTablesModule,
+    AppRoutingModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
