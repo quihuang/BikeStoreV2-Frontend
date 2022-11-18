@@ -58,6 +58,7 @@ export class ClientsComponent implements OnInit {
       .toString()
       .toLowerCase();
 
+    debugger;
     // consumo el servicio de clientsService para hacer el POST
     let result = this.clientsService
       .createClient(this.formCreateClient)

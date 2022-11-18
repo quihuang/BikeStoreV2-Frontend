@@ -7,7 +7,7 @@
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
-                    "style": "scss"
+                    "style": "css"
                 }
             },
             "root": "",
@@ -22,13 +22,12 @@
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "tsconfig.app.json",
-                        "inlineStyleLanguage": "scss",
+                        "inlineStyleLanguage": "css",
                         "assets": ["src/favicon.ico", "src/assets"],
                         "styles": [
-                            "node_modules/bootstrap/dist/css/bootstrap.css",
+                            "src/assets/lib/bootstrap/dist/css/bootstrap.min.css",
                             "src/assets/lib/css/styles.css",
                             "src/assets/css/jquery-confirm.min.css",
-                            "src/styles.scss",
                             "src/assets/css/site.css",
                             "node_modules/datatables.net-dt/css/jquery.dataTables.css"
                         ],
@@ -38,6 +37,7 @@
                             "src/assets/fonts/all.js",
                             "src/assets/lib/jquery/dist/jquery.min.js",
                             "src/assets/lib/js/scripts.js",
+                            "src/assets/lib/bootstrap/dist/js/bootstrap.min.js",
                             "src/assets/js/bootstrap.bundle.min.js",
                             "src/assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
                             "src/assets/js/Chart.min.js",

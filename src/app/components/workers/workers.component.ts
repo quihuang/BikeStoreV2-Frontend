@@ -25,7 +25,7 @@ export class WorkersComponent implements OnInit {
   roles = ['Jefe Operativo', 'Comercial', 'Bodeguero'];
 
   // inyectamos el servicio de worker en el constructor
-  constructor(private workersService: WorkersService) {}
+  constructor(private workersService: WorkersService) { }
 
   ngOnInit(): void {
     // al cargar la pagina ejecuta el método y envía los datos a la tabla
