@@ -5,14 +5,15 @@ import { HomeComponent } from './components/home/home.component';
 import { ManagementReportComponent } from './components/management-report/management-report.component';
 import { WorkersComponent } from './components/workers/workers.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SalesComponent } from './components/sales/sales.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'managementReport', component: ManagementReportComponent },
   { path: 'clients', component: ClientsComponent },
   { path: 'workers', component: WorkersComponent },
-  { path: '**',pathMatch:'full', component: PageNotFoundComponent },
-  
+  { path: 'sales', component: SalesComponent },
+  { path: '**', pathMatch: 'full', component: PageNotFoundComponent },
 ];
 
 @NgModule({
