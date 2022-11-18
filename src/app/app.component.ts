@@ -10,4 +10,5 @@ export class AppComponent {
   managementReport = '/managementReport';
   clients = '/clients';
   workers = '/workers';
+  sales = '/sales';
 }

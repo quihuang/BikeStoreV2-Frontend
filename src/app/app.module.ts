@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
 import { WorkersComponent } from './components/workers/workers.component';
+import { SalesComponent } from './components/sales/sales.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { WorkersComponent } from './components/workers/workers.component';
     PageNotFoundComponent,
     ManagementReportComponent,
     ClientsComponent,
-    WorkersComponent
+    WorkersComponent,
+    SalesComponent
   ],
   imports: [
     BrowserModule,
