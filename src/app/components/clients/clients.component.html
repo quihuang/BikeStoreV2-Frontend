@@ -8,14 +8,14 @@
 
     <div class="containerBottons">
         <button type="button" id="btn-delete" class="btn btn-primary btn-crud" [hidden]="hiddenProperty" (click)="deleteClient()">
-      Eliminar
-    </button>
+            Eliminar
+        </button>
         <button type="button" id="btn-update" class="btn btn-primary btn-crud" data-toggle="modal" data-target="#ModalActualizar" [hidden]="hiddenProperty">
-      Editar
-    </button>
+            Editar
+        </button>
         <button type="button" id="btn-create" class="btn btn-primary " data-toggle="modal" data-target="#ModalCrear">
-      Crear
-    </button>
+            Crear
+        </button>
     </div>
 
 
@@ -26,8 +26,8 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="titleModal">Registrar Cliente</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -103,8 +103,8 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="titleModal">Actualizar Cliente</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -183,7 +183,7 @@
             <i class="fas fa-table me-1"></i> Clients
         </div>
         <div class="card-body">
-            <table datatable class="table row-border hover" id="datatablesSimple">
+            <table datatable class="table row-border hover">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -196,26 +196,8 @@
                         <th hidden>Id</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>Name</th>
-                        <th>Last name</th>
-                        <th>Type Document</th>
-                        <th>Number Document</th>
-                        <th>Phone Number</th>
-                        <th>Email</th>
-                        <th>Address</th>
-                        <th hidden>Id</th>
-                    </tr>
-                </tfoot>
                 <tbody>
-                    <!-- 
-          dentro del tr siguiente se le ponía dentro este evento:
-          onclick="seleccionarRegistroTabla(this,'@item.Id','@item.Cedula','@item.Nombre','@item.Apellido','@item.NumeroTelefono','@item.Email',
-          '@item.Direccion');" 
-          -->
                     <tr *ngFor="let client of clientList" (click)="RowSelected(client)">
-                        <!-- (onclick)="selectRecordTable('client.id','client.name','client.lastName','client.typeDocument','client.numDocument','client.phoneNumber','client.email','client.address')"> -->
                         <td scope="row">{{client.name}}</td>
                         <td>{{client.lastName}}</td>
                         <td>{{client.typeDocument}}</td>

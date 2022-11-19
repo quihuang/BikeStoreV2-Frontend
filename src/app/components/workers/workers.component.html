@@ -312,7 +312,7 @@
             <i class="fas fa-table me-1"></i> Trabajadores
         </div>
         <div class="card-body">
-            <table datatable class="table row-border hover" id="datatablesSimple">
+            <table datatable class="table row-border hover">
                 <thead>
                     <tr>
                         <th>Nombres</th>
@@ -328,21 +328,6 @@
                         <th hidden>Id</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>Nombres</th>
-                        <th>Apellidos</th>
-                        <th>Tipo de Documento</th>
-                        <th>Número de identificación</th>
-                        <th>Número Teléfono</th>
-                        <th>Email</th>
-                        <th>Dirección</th>
-                        <th>Nombre de usuario</th>
-                        <th>Rol</th>
-                        <th>Salario</th>
-                        <th hidden>Id</th>
-                    </tr>
-                </tfoot>
                 <tbody>
                     <tr *ngFor="let worker of workerList" (click)="RowSelected(worker)">
                         <td scope="row">{{worker.name}}</td>

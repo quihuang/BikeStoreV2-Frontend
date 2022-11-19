@@ -9,16 +9,14 @@
     </div>
 
     <div class="containerBottons">
-        <button type="button" id="btn-const" class="btn btn-primary btn-crud" data-toggle="modal"
-            data-target="#ModalFactura" hidden>
+        <button type="button" id="btn-const" class="btn btn-primary btn-crud" data-toggle="modal" data-target="#ModalFactura" hidden>
             Factura Venta
         </button>
         <button type="button" id="btn-delete" class="btn btn-primary btn-crud" [hidden]="hiddenProperty"
             (click)="deleteSale()">
             Devolución
         </button>
-        <button type="button" id="btn-update" class="btn btn-primary btn-crud" data-toggle="modal"
-            data-target="#ModalActualizar" [hidden]="hiddenProperty">
+        <button type="button" id="btn-update" class="btn btn-primary btn-crud" data-toggle="modal" data-target="#ModalActualizar" [hidden]="hiddenProperty">
             Editar
         </button>
         <button type="button" id="btn-create" class="btn btn-primary " data-toggle="modal" data-target="#ModalCrear">
@@ -27,8 +25,7 @@
     </div>
 
     <!-- ModalCrear -->
-    <div class="modal fade" id="ModalCrear" tabindex="-1" role="dialog" aria-labelledby="ModalCrearLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="ModalCrear" tabindex="-1" role="dialog" aria-labelledby="ModalCrearLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -88,10 +85,7 @@
 
                                 <div class="form-group">
                                     <label for="formCreateSale.salePrice">Precio</label>
-                                    <input type="number" [(ngModel)]="formCreateSale.salePrice"
-                                        name="formCreateSale.salePrice" id="formCreateSale.salePrice"
-                                        class="form-control" placeholder="Ingrese el precio del producto"
-                                        aria-describedby="invalid-feedback" minlength="1" step="1" required>
+                                    <input type="number" [(ngModel)]="formCreateSale.salePrice" name="formCreateSale.salePrice" id="formCreateSale.salePrice" class="form-control" placeholder="Ingrese el precio del producto" aria-describedby="invalid-feedback" minlength="1" step="1" required>
                                     <div class="invalid-feedback">
                                         Ingrese el precio de producto vendido.
                                     </div>
@@ -99,10 +93,8 @@
 
                                 <div class="form-group">
                                     <label for="formCreateSale.productQuantity">Cantidad Producto</label>
-                                    <input type="number" [(ngModel)]="formCreateSale.productQuantity"
-                                        name="formCreateSale.productQuantity" id="formCreateSale.productQuantity"
-                                        class="form-control" placeholder="Ingrese la cantidad del producto"
-                                        aria-describedby="invalid-feedback" minlength="1" step="1" required>
+                                    <input type="number" [(ngModel)]="formCreateSale.productQuantity" name="formCreateSale.productQuantity" id="formCreateSale.productQuantity" class="form-control" placeholder="Ingrese la cantidad del producto" aria-describedby="invalid-feedback" minlength="1"
+                                        step="1" required>
                                     <div class="invalid-feedback">
                                         Ingrese la cantidad de producto vendido.
                                     </div>
@@ -110,8 +102,7 @@
 
                                 <div class="modal-footer">
                                     <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="button" class="btn btn-primary" id="btn-create-modal"
-                                        (click)="createSale()">Crear</button>
+                                    <button type="button" class="btn btn-primary" id="btn-create-modal" (click)="createSale()">Crear</button>
                                 </div>
                             </form>
                         </div>
@@ -208,8 +199,7 @@
 
                                 <div class="modal-footer">
                                     <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="button" id="btn-update-modal"
-                                        class="btn btn-primary">Actualizar</button>
+                                    <button type="button" id="btn-update-modal" class="btn btn-primary">Actualizar</button>
                                 </div>
                             </form>
                         </div>
@@ -220,8 +210,7 @@
     </div>
 
     <!-- ModalFactura -->
-    <div class="modal fade" id="ModalFactura" tabindex="-1" role="dialog" aria-labelledby="ModalFactura"
-        aria-hidden="true">
+    <div class="modal fade" id="ModalFactura" tabindex="-1" role="dialog" aria-labelledby="ModalFactura" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -236,14 +225,11 @@
                             <form method="post">
                                 <div class="form-group">
                                     <label for="fechaFacturaVenta">Fecha</label>
-                                    <input type="text" name="fechaFacturaVenta" id="fechaFacturaVenta"
-                                        class="form-control" aria-describedby="placeholder"
-                                        placeholder="Los valores deben ser cargados automáticamente" disabled>
+                                    <input type="text" name="fechaFacturaVenta" id="fechaFacturaVenta" class="form-control" aria-describedby="placeholder" placeholder="Los valores deben ser cargados automáticamente" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label for="clienteFacturaVenta">Cliente</label>
-                                    <select name="clienteFacturaVenta" id="clienteFacturaVenta" class="form-control"
-                                        disabled>
+                                    <select name="clienteFacturaVenta" id="clienteFacturaVenta" class="form-control" disabled>
                                         <option value="">Seleccionar...</option>
                                         <!-- @foreach (var cliente in Model.listadoCliente)
                                         { -->
@@ -257,8 +243,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="vendedorFacturaVenta">Trabajador</label>
-                                    <select name="vendedorFacturaVenta" id="vendedorFacturaVenta" class="form-control"
-                                        disabled>
+                                    <select name="vendedorFacturaVenta" id="vendedorFacturaVenta" class="form-control" disabled>
                                         <option value="">Seleccionar...</option>
                                         <!-- @foreach (var trabajador in Model.listadoTrabajador)
                                         { -->
@@ -272,8 +257,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="productoFacturaVenta">Producto</label>
-                                    <select name="productoFacturaVenta" id="productoFacturaVenta" class="form-control"
-                                        disabled>
+                                    <select name="productoFacturaVenta" id="productoFacturaVenta" class="form-control" disabled>
                                         <option value="">Seleccionar...</option>
                                         <!-- @foreach (var inventario in Model.listadoInventario)
                                         {
@@ -288,21 +272,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="cantidadProductoFacturaVenta">Cantidad de Productos</label>
-                                    <input type="number" name="cantidadProductoFacturaVenta"
-                                        id="cantidadProductoFacturaVenta" class="form-control"
-                                        aria-describedby="placeholder"
-                                        placeholder="Los valores deben ser cargados automáticamente" disabled>
+                                    <input type="number" name="cantidadProductoFacturaVenta" id="cantidadProductoFacturaVenta" class="form-control" aria-describedby="placeholder" placeholder="Los valores deben ser cargados automáticamente" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label for="valorVentaFacturaVenta">Valor Venta</label>
-                                    <input type="text" name="valorVentaFacturaVenta" id="valorVentaFacturaVenta"
-                                        class="form-control" aria-describedby="placeholder"
-                                        placeholder="Los valores deben ser cargados automáticamente" disabled>
+                                    <input type="text" name="valorVentaFacturaVenta" id="valorVentaFacturaVenta" class="form-control" aria-describedby="placeholder" placeholder="Los valores deben ser cargados automáticamente" disabled>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="button" class="btn btn-primary"
-                                        onclick="imprimir('ModalFactura')">Imprimir</button>
+                                    <button type="button" class="btn btn-primary" onclick="imprimir('ModalFactura')">Imprimir</button>
                                 </div>
                             </form>
                         </div>
@@ -315,11 +293,10 @@
     <!-- Tabla general -->
     <div class="card mb-4">
         <div class="card-header">
-            <i class="fas fa-table me-1"></i>
-            Ventas
+            <i class="fas fa-table me-1"></i> Ventas
         </div>
         <div class="card-body">
-            <table id="datatablesSimple">
+            <table datatable class="table row-border hover">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -331,17 +308,6 @@
                         <th>id inventario</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>ID</th>
-                        <th>Fecha Creación</th>
-                        <th>Vendedor</th>
-                        <th>Cliente</th>
-                        <th>Cantidad Producto</th>
-                        <th>Valor</th>
-                        <th>id inventario</th>
-                    </tr>
-                </tfoot>
                 <tbody>
                     <tr *ngFor="let sale of saleList" (click)="RowSelected(sale)">
                         <td scope="row">{{ sale.id.slice(0, 5) }}</td>
