@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
 import { WorkersComponent } from './components/workers/workers.component';
 import { SalesComponent } from './components/sales/sales.component';
+import { InventoriesComponent } from './components/inventories/inventories.component';
 
 @NgModule({
   declarations: [
@@ -21,16 +22,17 @@ import { SalesComponent } from './components/sales/sales.component';
     ManagementReportComponent,
     ClientsComponent,
     WorkersComponent,
-    SalesComponent
+    SalesComponent,
+    InventoriesComponent,
   ],
   imports: [
     BrowserModule,
     DataTablesModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

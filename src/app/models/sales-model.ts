@@ -1,23 +1,24 @@
 export class SalesModel {
   id: string;
-  clientsId: string;
   date: Date;
-  productQuantity: number;
+  workerName: string;
+  clientName: string;
+  ProductName: string;
   salePrice: number;
-  workersId: string;
-  
+  productQuantity: number;
+
   /* 
-  inventorySalesId: [
+  inventoriesSalesId: [
     {
-      inventoryId: 'string';
+      inventoriesId: 'string';
       salesId: 'string';
     }
   ];
-  en el backend loopback creó esta propiedad como inventorySales: InventorySales[];
+  en el backend loopback creó esta propiedad como inventoriesSales: InventoriesSales[];
   esquema: 
   {
     "id": "string",
-    "inventoryId": "string",
+    "inventoriesId": "string",
     "salesId": "string"
   }
   */

@@ -13,7 +13,8 @@
             data-target="#ModalFactura" hidden>
             Factura Venta
         </button>
-        <button type="button" id="btn-delete" class="btn btn-primary btn-crud" [hidden]="hiddenProperty">
+        <button type="button" id="btn-delete" class="btn btn-primary btn-crud" [hidden]="hiddenProperty"
+            (click)="deleteSale()">
             Devolución
         </button>
         <button type="button" id="btn-update" class="btn btn-primary btn-crud" data-toggle="modal"
@@ -42,13 +43,12 @@
                             <form method="post" class="needs-validation" novalidate>
 
                                 <div class="form-group">
-                                    <!-- formCreateSale se usa para capturar el dato
-                                        y workerList se usa para mostrar el listado de todos los trabajadores-->
-                                    <label for="formCreateWorker.workersId">Trabajador</label>
-                                    <select [(ngModel)]="formCreateSale.workersId" name="formCreateWorker.workersId"
+                                    <label for="formCreateWorker.workerName">Trabajador</label>
+                                    <select [(ngModel)]="formCreateSale.workerName" name="formCreateWorker.workerName"
                                         class="form-control" required>
                                         <option value="" selected>Seleccionar...</option>
-                                        <option *ngFor="let worker of workerList" value="{{worker.id}}">{{worker.name}}
+                                        <option *ngFor="let worker of workerList"
+                                            value="{{worker.name}} {{worker.lastName}}">{{worker.name}}
                                             {{worker.lastName}}</option>
                                     </select>
                                     <div class="invalid-feedback">
@@ -57,13 +57,12 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <!-- formCreateSale se usa para capturar el dato
-                                        y clientList se usa para mostrar el listado de todos los clientes-->
-                                    <label for="formCreateSale.clientsId">Cliente</label>
-                                    <select [(ngModel)]="formCreateSale.clientsId" name="formCreateSale.clientsId"
+                                    <label for="formCreateSale.clientName">Cliente</label>
+                                    <select [(ngModel)]="formCreateSale.clientName" name="formCreateSale.clientName"
                                         class="form-control" required>
                                         <option value="" selected>Seleccionar...</option>
-                                        <option *ngFor="let client of clientList; index as i" value="{{client.id}}">
+                                        <option *ngFor="let client of clientList; index as i"
+                                            value="{{client.name}} {{client.lastName}}">
                                             {{client.name}} {{client.lastName}}
                                         </option>
                                     </select>
@@ -73,14 +72,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <!-- inventoryId se usa para capturar el dato y
-                                        inventoryList se usa para mostrar el listado de todos los productos-->
-                                    <label for="inventoryId">Producto</label>
-                                    <select [(ngModel)]="inventoryId" name="inventoryId" id="inventoryId"
-                                        class="form-control" required>
+                                    <label for="formCreateSale.ProductName">Producto</label>
+                                    <select [(ngModel)]="formCreateSale.ProductName" name="formCreateSale.ProductName"
+                                        id="formCreateSale.ProductName" class="form-control" required>
                                         <option selected value="">Seleccionar...</option>
-                                        <option *ngFor="let inventory of inventoryList" value="{{inventory.id}}">
-                                            {{inventory.productName}}
+                                        <option *ngFor="let inventories of inventoriesList"
+                                            value="{{inventories.productName}}">
+                                            {{inventories.productName}}
                                         </option>
                                     </select>
                                     <div class="invalid-feedback">
@@ -89,8 +87,6 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <!-- productName se usa para capturar el dato y
-                                        inventoryList se usa para mostrar el listado de todos los productos-->
                                     <label for="formCreateSale.salePrice">Precio</label>
                                     <input type="number" [(ngModel)]="formCreateSale.salePrice"
                                         name="formCreateSale.salePrice" id="formCreateSale.salePrice"
@@ -139,64 +135,77 @@
                     <div class="row">
                         <div class="col">
                             <form id="formEditar" class="needs-validation" novalidate>
-                                <input type="number" name="idUpdate" id="idUpdate" class="form-control" readonly hidden>
+
+                                <input type="hidden" [(ngModel)]="formCreateSale.id" name="formCreateSale.id"
+                                    id="formCreateSale.id" class="form-control" readonly>
+
                                 <div class="form-group">
-                                    <label for="inventarioUpdate">Producto</label>
-                                    <select name="inventarioUpdate" id="inventarioUpdate" class="form-control" required>
-                                        <option value="">Seleccionar...</option>
-                                        <!-- @foreach (var inventario in Model.listadoInventario)
-                                        {
-                                            @foreach (var productos in Model.listadoProductos){
-                                                @if(inventario.ProductoId == productos.Id){ -->
-                                        <option class="inventarioUpdateId" id="inventarioUpdateId-@inventario.Id"
-                                            value="@inventario.Id">@productos.Nombre</option>
-                                        <!-- }
-                                            } 
-                                        } -->
+                                    <label for="formUpdateSale.workerName">Trabajador</label>
+                                    <select [(ngModel)]="formUpdateSale.workerName" name="formUpdateSale.workerName"
+                                        id="formUpdateSale.workerName" class="form-control" required>
+                                        <option value="" selected>Seleccionar...</option>
+                                        <option *ngFor="let worker of workerList"
+                                            value="{{worker.name}} {{worker.lastName}}">{{worker.name}}
+                                            {{worker.lastName}}</option>
                                     </select>
                                     <div class="invalid-feedback">
-                                        Seleccionar un producto del inventario.
+                                        Seleccionar un trabajador...
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="cantidadProductoUpdate">Cantidad Producto</label>
-                                    <input type="number" name="cantidadProductoUpdate" id="cantidadProductoUpdate"
+                                    <label for="formUpdateSale.clientName">Cliente</label>
+                                    <select [(ngModel)]="formUpdateSale.clientName" name="formUpdateSale.clientName"
+                                        id="formUpdateSale.clientName" class="form-control" required>
+                                        <option value="" selected>Seleccionar...</option>
+                                        <option *ngFor="let client of clientList; index as i"
+                                            value="{{client.name}} {{client.lastName}}">
+                                            {{client.name}} {{client.lastName}}
+                                        </option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Seleccionar un cliente...
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="formUpdateSale.ProductName">Producto</label>
+                                    <select [(ngModel)]="formUpdateSale.ProductName" name="formUpdateSale.ProductName"
+                                        id="formUpdateSale.ProductName" class="form-control" required>
+                                        <option selected value="">Seleccionar...</option>
+                                        <option *ngFor="let inventories of inventoriesList"
+                                            value="{{inventories.productName}}">
+                                            {{inventories.productName}}
+                                        </option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Seleccionar un producto del inventario...
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="formUpdateSale.salePrice">Precio</label>
+                                    <input type="number" [(ngModel)]="formUpdateSale.salePrice"
+                                        name="formUpdateSale.salePrice" id="formUpdateSale.salePrice"
+                                        class="form-control" placeholder="Ingrese el precio del producto"
+                                        aria-describedby="invalid-feedback" minlength="1" step="1" required>
+                                    <div class="invalid-feedback">
+                                        Ingrese el precio de producto vendido.
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="formUpdateSale.productQuantity">Cantidad Producto</label>
+                                    <input type="number" [(ngModel)]="formUpdateSale.productQuantity"
+                                        name="formUpdateSale.productQuantity" id="formUpdateSale.productQuantity"
                                         class="form-control" placeholder="Ingrese la cantidad del producto"
-                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                        aria-describedby="invalid-feedback" minlength="1" step="1" required>
                                     <div class="invalid-feedback">
-                                        Ingrese la cantidad del producto vendido.
+                                        Ingrese la cantidad de producto vendido.
                                     </div>
                                 </div>
-                                <input type="number" name="valorVentaUpdate" id="valorVentaUpdate" class="form-control"
-                                    hidden>
-                                <div class="form-group">
-                                    <label for="trabajadorUpdate">Trabajador</label>
-                                    <select name="trabajadorUpdate" id="trabajadorUpdate" class="form-control" required>
-                                        <option value="">Seleccionar...</option>
-                                        <!-- @foreach (var trabajador in Model.listadoTrabajador)
-                                        { -->
-                                        <option class="trabajadorUpdateId" id="trabajadorUpdateId-@trabajador.Id"
-                                            value="@trabajador.Id">@trabajador.Nombre @trabajador.Apellido</option>
-                                        <!-- } -->
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Seleccionar un trabajador.
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="clienteUpdate">Cliente</label>
-                                    <select name="clienteUpdate" id="clienteUpdate" class="form-control" required>
-                                        <option value="">Seleccionar...</option>
-                                        <!-- @foreach (var cliente in Model.listadoCliente)
-                                        { -->
-                                        <option class="clienteUpdateId" id="clienteUpdateId-@cliente.Id"
-                                            value="@cliente.Id">@cliente.Nombre @cliente.Apellido</option>
-                                        <!-- } -->
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Seleccionar un cliente.
-                                    </div>
-                                </div>
+
                                 <div class="modal-footer">
                                     <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                     <button type="button" id="btn-update-modal"
@@ -337,11 +346,16 @@
                     <tr *ngFor="let sale of saleList" (click)="RowSelected(sale)">
                         <td scope="row">{{ sale.id.slice(0, 5) }}</td>
                         <td>{{ sale.date.toString().slice(0, 10) }}</td>
-                        <td>
-                            <div *ngFor="let worker of workerList">
+                        <td> {{sale.workerName}}
+                            <!-- <div *ngFor="let worker of workerList">
                                 <div *ngIf="sale.workersId == worker.id"> {{worker.name + " " + worker.lastName}}</div>
-                            </div>
+                            </div> -->
                         </td>
+                        <td>{{ sale.clientName }}</td>
+                        <td>{{ sale.ProductName }}</td>
+                        <td>{{ sale.salePrice }}</td>
+                        <td>{{ sale.productQuantity }}</td>
+
                         <!-- <td>
                             <div *ngFor="let client of clientList">
                                 <div *ngIf="sale.clientsId == client.id"> {{client.name + " " + client.lastName}}</div>

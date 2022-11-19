@@ -1,0 +1,293 @@
+<div class="container-fluid px-4">
+
+    <div class="tittleModules">
+        <h1>
+            Gestión de Inventario
+        </h1>
+    </div>
+
+    <div class="containerBottons">
+        <button type="button" id="btn-const" class="btn btn-primary btn-crud" data-toggle="modal"
+            data-target="#ModalConstancia" hidden>
+            Constancia
+        </button>
+        <button type="button" id="btn-delete" class="btn btn-primary btn-crud" [hidden]="hiddenProperty"
+            (click)="deleteInventories()">
+            Eliminar
+        </button>
+        <button type="button" id="btn-update" class="btn btn-primary btn-crud" data-toggle="modal"
+            data-target="#ModalActualizar" [hidden]="hiddenProperty">
+            Editar
+        </button>
+        <button type="button" id="btn-create" class="btn btn-primary " data-toggle="modal" data-target="#ModalCrear">
+            Crear
+        </button>
+    </div>
+
+    <!-- ModalCrear -->
+    <div class="modal fade" id="ModalCrear" tabindex="-1" role="dialog" aria-labelledby="ModalCrearLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titleModal">Registrar Inventario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <form method="post" class="needs-validation" novalidate>
+
+                                <div class="form-group">
+                                    <label for="formCreateInventories.productName">Nombre</label>
+                                    <input type="text" [(ngModel)]="formCreateInventories.productName" name="formCreateInventories.productName" id="formCreateInventories.productName" class="form-control"
+                                        placeholder="Ingrese el nombre del producto"
+                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <div class="invalid-feedback">
+                                        Ingrese el nombre del producto.
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="formCreateInventories.description">Descripción</label>
+                                    <input type="text" [(ngModel)]="formCreateInventories.description" name="formCreateInventories.description" id="formCreateInventories.description" class="form-control"
+                                        placeholder="Ingrese el nombre del producto"
+                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <div class="invalid-feedback">
+                                        Ingrese la descripción del producto.
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="formCreateInventories.existence">Existencias</label>
+                                    <input type="number" [(ngModel)]="formCreateInventories.existence" name="formCreateInventories.existence" id="formCreateInventories.existence" class="form-control"
+                                        placeholder="Ingrese el número de existencias del producto"
+                                        aria-describedby="invalid-feedback" minlength="1" maxlength="50" step="1" required>
+                                    <div class="invalid-feedback">
+                                        Ingrese el número de existencias del producto.
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="formCreateInventories.purchaseRefNumber">Numero referencia de compra</label>
+                                    <input type="text" [(ngModel)]="formCreateInventories.purchaseRefNumber" name="formCreateInventories.purchaseRefNumber" id="formCreateInventories.purchaseRefNumber"
+                                        class="form-control" placeholder="Ingrese el numero de referencia de compra"
+                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <div class="invalid-feedback">
+                                        Ingrese el número de referencia de compra.
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="formCreateInventories.priceUniSale">Precio de venta por unidad</label>
+                                    <input type="number" [(ngModel)]="formCreateInventories.priceUniSale" name="formCreateInventories.priceUniSale" id="formCreateInventories.priceUniSale" class="form-control"
+                                        placeholder="Ingrese el precio de venta por unidad"
+                                        aria-describedby="invalid-feedback" minlength="1" maxlength="50" step="1" required>
+                                    <div class="invalid-feedback">
+                                        Ingrese el precio de venta por unidad.
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="formCreateInventories.priceUniPurchase">Precio de compra por unidad</label>
+                                    <input type="number" [(ngModel)]="formCreateInventories.priceUniPurchase" name="formCreateInventories.priceUniPurchase" id="formCreateInventories.priceUniPurchase"
+                                        class="form-control" placeholder="Ingrese el precio unidad de compra"
+                                        aria-describedby="invalid-feedback" minlength="1" maxlength="50" step="1" required>
+                                    <div class="invalid-feedback">
+                                        Ingrese el precio de compra por unidad.
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    <button type="button" class="btn btn-primary" id="btn-create-modal" (click)="createInventories()">Crear</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ModalActualizar -->
+    <div class="modal fade" id="ModalActualizar" tabindex="-1" aria-labelledby="ModalActualizarLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titleModal">Registrar Inventario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <form id="formEditar" class="needs-validation" novalidate>
+                                @Html.AntiForgeryToken()
+                                <input type="number" name="idUpdate" id="idUpdate" class="form-control" readonly hidden>
+                                <div class="form-group">
+                                    <label for="productoUpdate">Producto</label>
+                                    <select name="productoUpdate" id="productoUpdate" class="form-control" required>
+                                        <option value="">Seleccionar...</option>
+                                        <!--                                        
+                                            @foreach (var productos in Model.listadoProducto){
+                                                <option class="productoUpdateId" id="productoUpdateId-@productos.Id" value="@productos.Id">@productos.Nombre</option>
+                                            }  -->
+
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Seleccionar un producto.
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="existenciasUpdate">Existencias</label>
+                                    <input type="number" name="existenciasUpdate" id="existenciasUpdate"
+                                        class="form-control" placeholder="Ingrese el número de existencias del producto"
+                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <div class="invalid-feedback">
+                                        Ingrese el número de existencias del producto.
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="numeroRefCompraUpdate">Numero referencia de compra</label>
+                                    <input type="number" name="numeroRefCompraUpdate" id="numeroRefCompraUpdate"
+                                        class="form-control" placeholder="Ingrese el numero de referencia de compra"
+                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <div class="invalid-feedback">
+                                        Ingrese el número de referencia de compra.
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="precioUniVentaUpdate">Precio de venta por unidad</label>
+                                    <input type="number" name="precioUniVentaUpdate" id="precioUniVentaUpdate"
+                                        class="form-control" placeholder="Ingrese el precio de venta por unidad"
+                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <div class="invalid-feedback">
+                                        Ingrese el precio de venta por unidad.
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="precioUniCompraUpdate">Precio de compra por unidad</label>
+                                    <input type="number" name="precioUniCompraUpdate" id="precioUniCompraUpdate"
+                                        class="form-control" placeholder="Ingrese el precio unidad de compra"
+                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <div class="invalid-feedback">
+                                        Ingrese el precio de compra por unidad.
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    <button type="button" id="btn-update-modal"
+                                        class="btn btn-primary">Actualizar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ModalConstancia -->
+    <div class="modal fade" id="ModalConstancia" tabindex="-1" role="dialog" aria-labelledby="ModalConstanciaLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titleModalConstancia">Constancia de recibido</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <form method="post">
+                                <div class="form-group">
+                                    <label for="productoUpdate">Producto</label>
+                                    <select name="productoUpdate" id="productoUpdate" class="form-control" required
+                                        disabled>
+                                        <!-- @foreach (var productos in Model.listadoProducto){
+                                                <option class="productoCosId" id="productoCosId-@productos.Id" value="@productos.Id">@productos.Nombre</option>
+                                            }  -->
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="existenciasConstancia">Existencias</label>
+                                    <input type="number" name="existenciasConstancia" id="existenciasConstancia"
+                                        class="form-control" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="numerorefcompraConstancia">Numero referencia de compra</label>
+                                    <input type="number" name="numerorefcompraConstancia" id="numerorefcompraConstancia"
+                                        class="form-control" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="preciouniventaConstancia">Precio unitario de venta</label>
+                                    <input type="text" name="preciouniventaConstancia" id="preciouniventaConstancia"
+                                        class="form-control" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="preciounicompraConstancia">Precio unitario de compra</label>
+                                    <input type="text" name="preciounicompraConstancia" id="preciounicompraConstancia"
+                                        class="form-control" readonly>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    <button type="button" class="btn btn-primary" onclick="">Imprimir</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabla general -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            Inventario
+        </div>
+        <div class="card-body">
+            <table id="datatablesSimple">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Existencias</th>
+                        <th>Num. ref. compra</th>
+                        <th>Precio unitario de venta</th>
+                        <th>Precio unitario de compra</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Existencias</th>
+                        <th>Num. ref. compra</th>
+                        <th>Precio unitario de venta</th>
+                        <th>Precio unitario de compra</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr *ngFor="let inventory of inventoriesList" (click)="RowSelected(inventory)">
+                        <td scope="row">{{ inventory.id.slice(0, 5) }}</td>
+                        <td>{{ inventory.productName}}</td>
+                        <td>{{ inventory.description}}</td>
+                        <td>{{ inventory.existence}}</td>
+                        <td>{{ inventory.purchaseRefNumber}}</td>
+                        <td>{{ inventory.priceUniSale}}</td>
+                        <td>{{ inventory.priceUniPurchase}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { SalesModel } from 'src/app/models/sales-model';
 import { WorkersModel } from 'src/app/models/workers-model';
 import { ClientsModel } from 'src/app/models/clients-model';
+import { InventoriesModel } from 'src/app/models/inventories-model';
 import { SalesService } from 'src/app/services/sales.service';
 import { WorkersService } from 'src/app/services/workers.service';
 import { ClientsService } from 'src/app/services/clients.service';
+import { InventoriesService } from 'src/app/services/inventories.service';
 
 @Component({
   selector: 'app-sales',
@@ -24,30 +26,11 @@ export class SalesComponent implements OnInit {
 
   // se usará para guardar un listado de los productos
   // por ahora datos quemados
-  inventoryList = [
-    {
-      id: '123abc',
-      productName: 'Quemada Bicicleta A',
-      description: 'TodoTerreno1',
-      existence: 101,
-      purchaseRefNumber: 'referencia A',
-      priceUniSale: 100,
-      priceUniPurchase: 50,
-    },
-    {
-      id: '456abc',
-      productName: 'Quemada Bicicleta b',
-      description: 'TodoTerreno2',
-      existence: 102,
-      purchaseRefNumber: 'referencia B',
-      priceUniSale: 100,
-      priceUniPurchase: 50,
-    },
-  ];
+  inventoriesList = new Array<InventoriesModel>();
 
   // variables para capturar el id del producto que seleccionen en el formulario
   //  y luego crear el objeto que se enviará al post
-  inventoryId: string;
+  inventoriesId: string;
 
   // hago uso de property Binding (https://youtu.be/ILO7-5Hnxt8)
   // para cambiar el estado de oculto de los botones Eliminar y Actualizar
@@ -62,7 +45,8 @@ export class SalesComponent implements OnInit {
   constructor(
     private salesService: SalesService,
     private workersService: WorkersService,
-    private clientsService: ClientsService
+    private clientsService: ClientsService,
+    private inventoriesService: InventoriesService
   ) {}
 
   ngOnInit(): void {
@@ -70,6 +54,7 @@ export class SalesComponent implements OnInit {
     this.getSalesAll();
     this.getWorkersAll();
     this.getClientsAll();
+    this.getInventoriesAll();
   }
 
   // método para consultar todos los clientes del backend
@@ -95,6 +80,13 @@ export class SalesComponent implements OnInit {
     });
   }
 
+  // método para consultar todos los inventarios del backend
+  getInventoriesAll() {
+    this.inventoriesService.getInventoriesAll().subscribe((data) => {
+      this.inventoriesList = Object.values(data);
+    });
+  }
+
   // método para seleccionar una fila de la tabla
   // cambia el estado de los botones Eliminar y actualizar
   // captura los datos de la fila y los guarda en formUpdateSale, para con ellos rellenar el modal Actualizar...
@@ -107,7 +99,7 @@ export class SalesComponent implements OnInit {
   createSale() {
     // meter la fecha al objeto
     this.formCreateSale.date = new Date();
-    debugger;
+
     // consumo el servicio de salesService para hacer el POST
     let result = this.salesService
       .createSale(this.formCreateSale)
@@ -116,8 +108,7 @@ export class SalesComponent implements OnInit {
         return response;
       });
 
-    console.log('result: ' + result);
-    console.log( Object.entries(result));
+    console.log(Object.entries(result));
     if (result) {
       alert('Se creó la venta: ');
       this.getSalesAll();
@@ -127,113 +118,32 @@ export class SalesComponent implements OnInit {
   }
 
   updateSale() {
-    // aquí hago la conversion de los tipos de datos que vienen del formulario
-    // this.formUpdateSale.numDocument =this.formUpdateSale.numDocument.toString();
-    // this.formUpdateSale.phoneNumber =this.formUpdateSale.phoneNumber.toString();
-    // this.formUpdateSale.email = this.formUpdateSale.email.toString().toLowerCase();
-    // en la siguiente linea, tomo el numero que viene de la lista "select" y lo uso como indice para buscar su valor correspondiente dentro del listado de roles, de esa forma no se guarda un número, si no un texto con el rol mucho mas claro
-    // this.formUpdateSale.role = this.roles[parseInt(this.formUpdateSale.role)];
-    // try {
-    //   let result = this.salesService
-    //     .updateSale(this.formUpdateSale)
-    //     .subscribe((response) => {
-    //       console.log('response: ' + response);
-    //       return response;
-    //     });
-    //   console.log('result: ' + result);
-    //   alert('Se actualizó el trabajador: ' + this.formUpdateSale.name);
-    //   this.getSalesAll();
-    // } catch (error) {
-    //   alert('Error al actualizar el trabajador, error: ' + error);
-    // }
+    try {
+      let result = this.salesService
+        .updateSale(this.formUpdateSale)
+        .subscribe((response) => {
+          console.log('response: ' + response);
+          return response;
+        });
+      console.log(Object.entries(result));
+      alert('Se actualizó la venta con éxito');
+      this.getSalesAll();
+    } catch (error) {
+      alert('Error al actualizar la venta: ' + error);
+    }
   }
 
   deleteSale() {
-    //   let result = this.salesService
-    //     .deleteSale(this.formUpdateSale)
-    //     .subscribe((response) => {
-    //       return response;
-    //     });
-    //   if (result) {
-    //     alert('Se eliminó el trabajador: ' + this.formUpdateSale.name);
-    //     this.getSalesAll();
-    //   } else {
-    //     alert('Error al eliminar el trabajador');
-    //   }
+    let result = this.salesService
+      .deleteSale(this.formUpdateSale)
+      .subscribe((response) => {
+        return response;
+      });
+    if (result) {
+      alert('Se eliminó la venta: ' + this.formUpdateSale.id);
+      this.getSalesAll();
+    } else {
+      alert('Error al la venta');
+    }
   }
-
-  ventas = [
-    {
-      id: {
-        $oid: '6377a99ba29ab03cc818a414',
-      },
-      date: {
-        $date: {
-          $numberLong: '1668700143591',
-        },
-      },
-      workersId: {
-        $oid: '636d4c798c3e0f17cc31b5bb',
-      },
-      clientsId: {
-        $oid: '63730408dcb44c394ca1f450',
-      },
-      products: '[[Bici A",1,1000],["Cascos A",1,100]]',
-      totalPrice: 1100,
-    },
-    {
-      id: {
-        $oid: '6377b0eee074383131321f9a',
-      },
-      date: {
-        $date: {
-          $numberLong: '1668700143591',
-        },
-      },
-      workersId: {
-        $oid: '636d4c798c3e0f17cc31b5bb',
-      },
-      clientsId: {
-        $oid: '63730408dcb44c394ca1f450',
-      },
-      products: '[[Bici B",1,1000],["Cascos B",2,200]]',
-      totalPrice: 1200,
-    },
-    {
-      id: {
-        $oid: '6377b0f1e074383131321f9b',
-      },
-      date: {
-        $date: {
-          $numberLong: '1668786543591',
-        },
-      },
-      workersId: {
-        $oid: '6374da2755dd433ecc8f89cc',
-      },
-      clientsId: {
-        $oid: '63730408dcb44c394ca1f450',
-      },
-      products: '[[Bici C",1,1000],["Cascos C",3,300]]',
-      totalPrice: 1300,
-    },
-    {
-      id: {
-        $oid: '6377b129e074383131321f9c',
-      },
-      date: {
-        $date: {
-          $numberLong: '1668786543591',
-        },
-      },
-      workersId: {
-        $oid: '6374da2755dd433ecc8f89cc',
-      },
-      clientsId: {
-        $oid: '63730408dcb44c394ca1f450',
-      },
-      products: '[[Bici D",1,1000],["Cascos D",4,400]]',
-      totalPrice: 1400,
-    },
-  ];
 }

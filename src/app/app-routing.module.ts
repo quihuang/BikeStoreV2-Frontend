@@ -6,6 +6,7 @@ import { ManagementReportComponent } from './components/management-report/manage
 import { WorkersComponent } from './components/workers/workers.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SalesComponent } from './components/sales/sales.component';
+import { InventoriesComponent } from './components/inventories/inventories.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'clients', component: ClientsComponent },
   { path: 'workers', component: WorkersComponent },
   { path: 'sales', component: SalesComponent },
+  { path: 'inventories', component: InventoriesComponent },
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent },
 ];
 
