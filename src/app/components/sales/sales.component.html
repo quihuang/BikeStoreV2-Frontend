@@ -9,14 +9,12 @@
     </div>
 
     <div class="containerBottons">
-        <button type="button" id="btn-const" class="btn btn-primary btn-crud" data-toggle="modal" data-target="#ModalFactura" hidden>
-            Factura Venta
-        </button>
         <button type="button" id="btn-delete" class="btn btn-primary btn-crud" [hidden]="hiddenProperty"
             (click)="deleteSale()">
             Devolución
         </button>
-        <button type="button" id="btn-update" class="btn btn-primary btn-crud" data-toggle="modal" data-target="#ModalActualizar" [hidden]="hiddenProperty">
+        <button type="button" id="btn-update" class="btn btn-primary btn-crud" data-toggle="modal"
+            data-target="#ModalActualizar" [hidden]="hiddenProperty">
             Editar
         </button>
         <button type="button" id="btn-create" class="btn btn-primary " data-toggle="modal" data-target="#ModalCrear">
@@ -25,7 +23,8 @@
     </div>
 
     <!-- ModalCrear -->
-    <div class="modal fade" id="ModalCrear" tabindex="-1" role="dialog" aria-labelledby="ModalCrearLabel" aria-hidden="true">
+    <div class="modal fade" id="ModalCrear" tabindex="-1" role="dialog" aria-labelledby="ModalCrearLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -40,7 +39,7 @@
                             <form method="post" class="needs-validation" novalidate>
 
                                 <div class="form-group">
-                                    <label for="formCreateWorker.workerName">Trabajador</label>
+                                    <label for="formCreateWorker.workerName">Vendedor</label>
                                     <select [(ngModel)]="formCreateSale.workerName" name="formCreateWorker.workerName"
                                         class="form-control" required>
                                         <option value="" selected>Seleccionar...</option>
@@ -85,7 +84,10 @@
 
                                 <div class="form-group">
                                     <label for="formCreateSale.salePrice">Precio</label>
-                                    <input type="number" [(ngModel)]="formCreateSale.salePrice" name="formCreateSale.salePrice" id="formCreateSale.salePrice" class="form-control" placeholder="Ingrese el precio del producto" aria-describedby="invalid-feedback" minlength="1" step="1" required>
+                                    <input type="number" [(ngModel)]="formCreateSale.salePrice"
+                                        name="formCreateSale.salePrice" id="formCreateSale.salePrice"
+                                        class="form-control" placeholder="Ingrese el precio del producto"
+                                        aria-describedby="invalid-feedback" minlength="1" step="1" required>
                                     <div class="invalid-feedback">
                                         Ingrese el precio de producto vendido.
                                     </div>
@@ -93,8 +95,10 @@
 
                                 <div class="form-group">
                                     <label for="formCreateSale.productQuantity">Cantidad Producto</label>
-                                    <input type="number" [(ngModel)]="formCreateSale.productQuantity" name="formCreateSale.productQuantity" id="formCreateSale.productQuantity" class="form-control" placeholder="Ingrese la cantidad del producto" aria-describedby="invalid-feedback" minlength="1"
-                                        step="1" required>
+                                    <input type="number" [(ngModel)]="formCreateSale.productQuantity"
+                                        name="formCreateSale.productQuantity" id="formCreateSale.productQuantity"
+                                        class="form-control" placeholder="Ingrese la cantidad del producto"
+                                        aria-describedby="invalid-feedback" minlength="1" step="1" required>
                                     <div class="invalid-feedback">
                                         Ingrese la cantidad de producto vendido.
                                     </div>
@@ -102,7 +106,8 @@
 
                                 <div class="modal-footer">
                                     <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="button" class="btn btn-primary" id="btn-create-modal" (click)="createSale()">Crear</button>
+                                    <button type="button" class="btn btn-primary" id="btn-create-modal"
+                                        (click)="createSale()">Crear</button>
                                 </div>
                             </form>
                         </div>
@@ -127,33 +132,32 @@
                         <div class="col">
                             <form id="formEditar" class="needs-validation" novalidate>
 
-                                <input type="hidden" [(ngModel)]="formCreateSale.id" name="formCreateSale.id"
-                                    id="formCreateSale.id" class="form-control" readonly>
+                                <input type="hidden" [(ngModel)]="formUpdateSale.id" name="formUpdateSale.id"
+                                    id="formUpdateSale.id" class="form-control" readonly>
 
                                 <div class="form-group">
-                                    <label for="formUpdateSale.workerName">Trabajador</label>
-                                    <select [(ngModel)]="formUpdateSale.workerName" name="formUpdateSale.workerName"
-                                        id="formUpdateSale.workerName" class="form-control" required>
-                                        <option value="" selected>Seleccionar...</option>
+                                    <label for="formUpdateSale.workerName">Vendedor</label>
+                                    <input [(ngModel)]="formUpdateSale.workerName" list="formUpdateSale-workerName"
+                                        id="formUpdateSale.workerName" name="formUpdateSale.workerName"
+                                        class="form-control">
+                                    <datalist id="formUpdateSale-workerName">
                                         <option *ngFor="let worker of workerList"
-                                            value="{{worker.name}} {{worker.lastName}}">{{worker.name}}
-                                            {{worker.lastName}}</option>
-                                    </select>
+                                            value="{{worker.name}} {{worker.lastName}}">
+                                    </datalist>
                                     <div class="invalid-feedback">
-                                        Seleccionar un trabajador...
+                                        Seleccionar un vendedor...
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="formUpdateSale.clientName">Cliente</label>
-                                    <select [(ngModel)]="formUpdateSale.clientName" name="formUpdateSale.clientName"
-                                        id="formUpdateSale.clientName" class="form-control" required>
-                                        <option value="" selected>Seleccionar...</option>
-                                        <option *ngFor="let client of clientList; index as i"
+                                    <input [(ngModel)]="formUpdateSale.clientName" list="formUpdateSale-clientName"
+                                        id="formUpdateSale.clientName" name="formUpdateSale.clientName"
+                                        class="form-control">
+                                    <datalist id="formUpdateSale-clientName">
+                                        <option *ngFor="let client of clientList"
                                             value="{{client.name}} {{client.lastName}}">
-                                            {{client.name}} {{client.lastName}}
-                                        </option>
-                                    </select>
+                                    </datalist>
                                     <div class="invalid-feedback">
                                         Seleccionar un cliente...
                                     </div>
@@ -162,18 +166,18 @@
 
                                 <div class="form-group">
                                     <label for="formUpdateSale.ProductName">Producto</label>
-                                    <select [(ngModel)]="formUpdateSale.ProductName" name="formUpdateSale.ProductName"
-                                        id="formUpdateSale.ProductName" class="form-control" required>
-                                        <option selected value="">Seleccionar...</option>
+                                    <input [(ngModel)]="formUpdateSale.ProductName" list="formUpdateSale-ProductName"
+                                        id="formUpdateSale.ProductName" name="formUpdateSale.ProductName"
+                                        class="form-control">
+                                    <datalist id="formUpdateSale-ProductName">
                                         <option *ngFor="let inventories of inventoriesList"
                                             value="{{inventories.productName}}">
-                                            {{inventories.productName}}
-                                        </option>
-                                    </select>
+                                    </datalist>
                                     <div class="invalid-feedback">
-                                        Seleccionar un producto del inventario...
+                                        Seleccionar un producto...
                                     </div>
                                 </div>
+
 
                                 <div class="form-group">
                                     <label for="formUpdateSale.salePrice">Precio</label>
@@ -185,6 +189,7 @@
                                         Ingrese el precio de producto vendido.
                                     </div>
                                 </div>
+
 
                                 <div class="form-group">
                                     <label for="formUpdateSale.productQuantity">Cantidad Producto</label>
@@ -199,88 +204,8 @@
 
                                 <div class="modal-footer">
                                     <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="button" id="btn-update-modal" class="btn btn-primary">Actualizar</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ModalFactura -->
-    <div class="modal fade" id="ModalFactura" tabindex="-1" role="dialog" aria-labelledby="ModalFactura" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="titleModal">Factura venta</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col">
-                            <form method="post">
-                                <div class="form-group">
-                                    <label for="fechaFacturaVenta">Fecha</label>
-                                    <input type="text" name="fechaFacturaVenta" id="fechaFacturaVenta" class="form-control" aria-describedby="placeholder" placeholder="Los valores deben ser cargados automáticamente" disabled>
-                                </div>
-                                <div class="form-group">
-                                    <label for="clienteFacturaVenta">Cliente</label>
-                                    <select name="clienteFacturaVenta" id="clienteFacturaVenta" class="form-control" disabled>
-                                        <option value="">Seleccionar...</option>
-                                        <!-- @foreach (var cliente in Model.listadoCliente)
-                                        { -->
-                                        <option class="clienteFacturaId" id="clienteFacturaId-@cliente.Id"
-                                            value="@cliente.Id">@cliente.Nombre @cliente.Apellido</option>
-                                        <!-- } -->
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Seleccionar un cliente.
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="vendedorFacturaVenta">Trabajador</label>
-                                    <select name="vendedorFacturaVenta" id="vendedorFacturaVenta" class="form-control" disabled>
-                                        <option value="">Seleccionar...</option>
-                                        <!-- @foreach (var trabajador in Model.listadoTrabajador)
-                                        { -->
-                                        <option class="trabajadorFacturaId" id="trabajadorFacturaId-@trabajador.Id"
-                                            value="@trabajador.Id">@trabajador.Nombre @trabajador.Apellido</option>
-                                        <!-- } -->
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Seleccionar un trabajador.
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="productoFacturaVenta">Producto</label>
-                                    <select name="productoFacturaVenta" id="productoFacturaVenta" class="form-control" disabled>
-                                        <option value="">Seleccionar...</option>
-                                        <!-- @foreach (var inventario in Model.listadoInventario)
-                                        {
-                                            @foreach (var productos in Model.listadoProductos){
-                                                @if(inventario.ProductoId == productos.Id){ -->
-                                        <option class="inventarioFacturaId" id="inventarioFacturaId-@inventario.Id"
-                                            value="@inventario.Id">@productos.Nombre</option>
-                                        <!-- }
-                                            } 
-                                        } -->
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="cantidadProductoFacturaVenta">Cantidad de Productos</label>
-                                    <input type="number" name="cantidadProductoFacturaVenta" id="cantidadProductoFacturaVenta" class="form-control" aria-describedby="placeholder" placeholder="Los valores deben ser cargados automáticamente" disabled>
-                                </div>
-                                <div class="form-group">
-                                    <label for="valorVentaFacturaVenta">Valor Venta</label>
-                                    <input type="text" name="valorVentaFacturaVenta" id="valorVentaFacturaVenta" class="form-control" aria-describedby="placeholder" placeholder="Los valores deben ser cargados automáticamente" disabled>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="button" class="btn btn-primary" onclick="imprimir('ModalFactura')">Imprimir</button>
+                                    <button type="button" id="btn-update-modal"
+                                        class="btn btn-primary" (click)="updateSale()">Actualizar</button>
                                 </div>
                             </form>
                         </div>
@@ -303,9 +228,9 @@
                         <th>Fecha Creación</th>
                         <th>Vendedor</th>
                         <th>Cliente</th>
-                        <th>Cantidad Producto</th>
-                        <th>Valor</th>
-                        <th>id inventario</th>
+                        <th>Nombre del Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -313,27 +238,11 @@
                         <td scope="row">{{ sale.id.slice(0, 5) }}</td>
                         <td>{{ sale.date.toString().slice(0, 10) }}</td>
                         <td> {{sale.workerName}}
-                            <!-- <div *ngFor="let worker of workerList">
-                                <div *ngIf="sale.workersId == worker.id"> {{worker.name + " " + worker.lastName}}</div>
-                            </div> -->
                         </td>
                         <td>{{ sale.clientName }}</td>
                         <td>{{ sale.ProductName }}</td>
                         <td>{{ sale.salePrice }}</td>
                         <td>{{ sale.productQuantity }}</td>
-
-                        <!-- <td>
-                            <div *ngFor="let client of clientList">
-                                <div *ngIf="sale.clientsId == client.id"> {{client.name + " " + client.lastName}}</div>
-                            </div>
-                        </td> -->
-                        <!-- <td>
-                            <div *ngFor="let venta of ventas">
-                                {{venta.products[0][0]}}
-                            </div>
-                        </td> -->
-                        <!-- <td>{{ sale.products}}</td> -->
-
                     </tr>
                 </tbody>
             </table>

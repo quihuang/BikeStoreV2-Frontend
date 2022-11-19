@@ -42,8 +42,9 @@
 
                                 <div class="form-group">
                                     <label for="formCreateInventories.productName">Nombre</label>
-                                    <input type="text" [(ngModel)]="formCreateInventories.productName" name="formCreateInventories.productName" id="formCreateInventories.productName" class="form-control"
-                                        placeholder="Ingrese el nombre del producto"
+                                    <input type="text" [(ngModel)]="formCreateInventories.productName"
+                                        name="formCreateInventories.productName" id="formCreateInventories.productName"
+                                        class="form-control" placeholder="Ingrese el nombre del producto"
                                         aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
                                     <div class="invalid-feedback">
                                         Ingrese el nombre del producto.
@@ -52,8 +53,9 @@
 
                                 <div class="form-group">
                                     <label for="formCreateInventories.description">Descripción</label>
-                                    <input type="text" [(ngModel)]="formCreateInventories.description" name="formCreateInventories.description" id="formCreateInventories.description" class="form-control"
-                                        placeholder="Ingrese el nombre del producto"
+                                    <input type="text" [(ngModel)]="formCreateInventories.description"
+                                        name="formCreateInventories.description" id="formCreateInventories.description"
+                                        class="form-control" placeholder="Ingrese el nombre del producto"
                                         aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
                                     <div class="invalid-feedback">
                                         Ingrese la descripción del producto.
@@ -62,45 +64,62 @@
 
                                 <div class="form-group">
                                     <label for="formCreateInventories.existence">Existencias</label>
-                                    <input type="number" [(ngModel)]="formCreateInventories.existence" name="formCreateInventories.existence" id="formCreateInventories.existence" class="form-control"
-                                        placeholder="Ingrese el número de existencias del producto"
-                                        aria-describedby="invalid-feedback" minlength="1" maxlength="50" step="1" required>
+                                    <input type="number" [(ngModel)]="formCreateInventories.existence"
+                                        name="formCreateInventories.existence" id="formCreateInventories.existence"
+                                        class="form-control" placeholder="Ingrese el número de existencias del producto"
+                                        aria-describedby="invalid-feedback" minlength="1" maxlength="50" step="1"
+                                        required>
                                     <div class="invalid-feedback">
                                         Ingrese el número de existencias del producto.
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="formCreateInventories.purchaseRefNumber">Numero referencia de compra</label>
-                                    <input type="text" [(ngModel)]="formCreateInventories.purchaseRefNumber" name="formCreateInventories.purchaseRefNumber" id="formCreateInventories.purchaseRefNumber"
-                                        class="form-control" placeholder="Ingrese el numero de referencia de compra"
+                                    <label for="formCreateInventories.purchaseRefNumber">Numero referencia de
+                                        compra</label>
+                                    <input type="text" [(ngModel)]="formCreateInventories.purchaseRefNumber"
+                                        name="formCreateInventories.purchaseRefNumber"
+                                        id="formCreateInventories.purchaseRefNumber" class="form-control"
+                                        placeholder="Ingrese el numero de referencia de compra"
                                         aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
                                     <div class="invalid-feedback">
                                         Ingrese el número de referencia de compra.
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="formCreateInventories.priceUniSale">Precio de venta por unidad</label>
-                                    <input type="number" [(ngModel)]="formCreateInventories.priceUniSale" name="formCreateInventories.priceUniSale" id="formCreateInventories.priceUniSale" class="form-control"
+                                    <input type="number" [(ngModel)]="formCreateInventories.priceUniSale"
+                                        name="formCreateInventories.priceUniSale"
+                                        id="formCreateInventories.priceUniSale" class="form-control"
                                         placeholder="Ingrese el precio de venta por unidad"
-                                        aria-describedby="invalid-feedback" minlength="1" maxlength="50" step="1" required>
+                                        aria-describedby="invalid-feedback" minlength="1" maxlength="50" step="1"
+                                        required>
                                     <div class="invalid-feedback">
                                         Ingrese el precio de venta por unidad.
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="formCreateInventories.priceUniPurchase">Precio de compra por unidad</label>
-                                    <input type="number" [(ngModel)]="formCreateInventories.priceUniPurchase" name="formCreateInventories.priceUniPurchase" id="formCreateInventories.priceUniPurchase"
-                                        class="form-control" placeholder="Ingrese el precio unidad de compra"
-                                        aria-describedby="invalid-feedback" minlength="1" maxlength="50" step="1" required>
+                                    <label for="formCreateInventories.priceUniPurchase">Precio de compra por
+                                        unidad</label>
+                                    <input type="number" [(ngModel)]="formCreateInventories.priceUniPurchase"
+                                        name="formCreateInventories.priceUniPurchase"
+                                        id="formCreateInventories.priceUniPurchase" class="form-control"
+                                        placeholder="Ingrese el precio unidad de compra"
+                                        aria-describedby="invalid-feedback" minlength="1" maxlength="50" step="1"
+                                        required>
                                     <div class="invalid-feedback">
                                         Ingrese el precio de compra por unidad.
                                     </div>
                                 </div>
+
                                 <div class="modal-footer">
                                     <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="button" class="btn btn-primary" id="btn-create-modal" (click)="createInventories()">Crear</button>
+                                    <button type="button" class="btn btn-primary" id="btn-create-modal"
+                                        (click)="createInventories()">Crear</button>
                                 </div>
+
                             </form>
                         </div>
                     </div>
@@ -124,63 +143,91 @@
                     <div class="row">
                         <div class="col">
                             <form id="formEditar" class="needs-validation" novalidate>
-                                @Html.AntiForgeryToken()
-                                <input type="number" name="idUpdate" id="idUpdate" class="form-control" readonly hidden>
-                                <div class="form-group">
-                                    <label for="productoUpdate">Producto</label>
-                                    <select name="productoUpdate" id="productoUpdate" class="form-control" required>
-                                        <option value="">Seleccionar...</option>
-                                        <!--                                        
-                                            @foreach (var productos in Model.listadoProducto){
-                                                <option class="productoUpdateId" id="productoUpdateId-@productos.Id" value="@productos.Id">@productos.Nombre</option>
-                                            }  -->
 
-                                    </select>
+                                <input type="hidden" [(ngModel)]="formUpdateInventories.id"
+                                    name="formUpdateInventories.id" id="formUpdateInventories.id" class="form-control"
+                                    readonly>
+
+                                <div class="form-group">
+                                    <label for="formUpdateInventories.productName">Nombre</label>
+                                    <input type="text" [(ngModel)]="formUpdateInventories.productName"
+                                        name="formUpdateInventories.productName" id="formUpdateInventories.productName"
+                                        class="form-control" placeholder="Ingrese el nombre del producto"
+                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
                                     <div class="invalid-feedback">
-                                        Seleccionar un producto.
+                                        Ingrese el nombre del producto.
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="existenciasUpdate">Existencias</label>
-                                    <input type="number" name="existenciasUpdate" id="existenciasUpdate"
-                                        class="form-control" placeholder="Ingrese el número de existencias del producto"
+                                    <label for="formUpdateInventories.description">Descripción</label>
+                                    <input type="text" [(ngModel)]="formUpdateInventories.description"
+                                        name="formUpdateInventories.description" id="formUpdateInventories.description"
+                                        class="form-control" placeholder="Ingrese el nombre del producto"
                                         aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <div class="invalid-feedback">
+                                        Ingrese la descripción del producto.
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="formUpdateInventories.existence">Existencias</label>
+                                    <input type="number" [(ngModel)]="formUpdateInventories.existence"
+                                        name="formUpdateInventories.existence" id="formUpdateInventories.existence"
+                                        class="form-control" placeholder="Ingrese el número de existencias del producto"
+                                        aria-describedby="invalid-feedback" minlength="1" maxlength="50" step="1"
+                                        required>
                                     <div class="invalid-feedback">
                                         Ingrese el número de existencias del producto.
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="numeroRefCompraUpdate">Numero referencia de compra</label>
-                                    <input type="number" name="numeroRefCompraUpdate" id="numeroRefCompraUpdate"
-                                        class="form-control" placeholder="Ingrese el numero de referencia de compra"
+                                    <label for="formUpdateInventories.purchaseRefNumber">Numero referencia de
+                                        compra</label>
+                                    <input type="text" [(ngModel)]="formUpdateInventories.purchaseRefNumber"
+                                        name="formUpdateInventories.purchaseRefNumber"
+                                        id="formUpdateInventories.purchaseRefNumber" class="form-control"
+                                        placeholder="Ingrese el numero de referencia de compra"
                                         aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
                                     <div class="invalid-feedback">
                                         Ingrese el número de referencia de compra.
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="precioUniVentaUpdate">Precio de venta por unidad</label>
-                                    <input type="number" name="precioUniVentaUpdate" id="precioUniVentaUpdate"
-                                        class="form-control" placeholder="Ingrese el precio de venta por unidad"
-                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <label for="formUpdateInventories.priceUniSale">Precio de venta por unidad</label>
+                                    <input type="number" [(ngModel)]="formUpdateInventories.priceUniSale"
+                                        name="formUpdateInventories.priceUniSale"
+                                        id="formUpdateInventories.priceUniSale" class="form-control"
+                                        placeholder="Ingrese el precio de venta por unidad"
+                                        aria-describedby="invalid-feedback" minlength="1" maxlength="50" step="1"
+                                        required>
                                     <div class="invalid-feedback">
                                         Ingrese el precio de venta por unidad.
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="precioUniCompraUpdate">Precio de compra por unidad</label>
-                                    <input type="number" name="precioUniCompraUpdate" id="precioUniCompraUpdate"
-                                        class="form-control" placeholder="Ingrese el precio unidad de compra"
-                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <label for="formUpdateInventories.priceUniPurchase">Precio de compra por
+                                        unidad</label>
+                                    <input type="number" [(ngModel)]="formUpdateInventories.priceUniPurchase"
+                                        name="formUpdateInventories.priceUniPurchase"
+                                        id="formUpdateInventories.priceUniPurchase" class="form-control"
+                                        placeholder="Ingrese el precio unidad de compra"
+                                        aria-describedby="invalid-feedback" minlength="1" maxlength="50" step="1"
+                                        required>
                                     <div class="invalid-feedback">
                                         Ingrese el precio de compra por unidad.
                                     </div>
                                 </div>
+
                                 <div class="modal-footer">
                                     <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="button" id="btn-update-modal"
-                                        class="btn btn-primary">Actualizar</button>
+                                    <button type="button" id="btn-update-modal" class="btn btn-primary"
+                                        (click)="updateInventories()">Actualizar</button>
                                 </div>
+
                             </form>
                         </div>
                     </div>
@@ -253,7 +300,7 @@
             Inventario
         </div>
         <div class="card-body">
-            <table id="datatablesSimple">
+            <table datatable class="table row-border hover" id="datatablesSimple">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -265,20 +312,9 @@
                         <th>Precio unitario de compra</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Existencias</th>
-                        <th>Num. ref. compra</th>
-                        <th>Precio unitario de venta</th>
-                        <th>Precio unitario de compra</th>
-                    </tr>
-                </tfoot>
                 <tbody>
                     <tr *ngFor="let inventory of inventoriesList" (click)="RowSelected(inventory)">
-                        <td scope="row">{{ inventory.id.slice(0, 5) }}</td>
+                        <td scope="row">{{ inventory.id.slice(-6) }}</td>
                         <td>{{ inventory.productName}}</td>
                         <td>{{ inventory.description}}</td>
                         <td>{{ inventory.existence}}</td>

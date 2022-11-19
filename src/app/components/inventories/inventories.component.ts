@@ -57,7 +57,7 @@ export class InventoriesComponent implements OnInit {
 
     console.log(result);
     if (result) {
-      alert('Se creó el inventario: ' + this.formUpdateInventories.productName);
+      alert('Se creó el inventario: ' + this.formCreateInventories.productName);
       this.getInventoriesAll();
     } else {
       alert('Error al crear el inventario');
@@ -65,17 +65,8 @@ export class InventoriesComponent implements OnInit {
   }
 
   updateInventories() {
-    // aquí hago la conversion de los tipos de datos que vienen del formulario
-    // this.formUpdateInventories.numDocument =
-    //   this.formUpdateInventories.numDocument.toString();
-    // this.formUpdateInventories.phoneNumber =
-    //   this.formUpdateInventories.phoneNumber.toString();
-    // this.formUpdateInventories.email = this.formUpdateInventories.email
-    //   .toString()
-    //   .toLowerCase();
-    // en la siguiente linea, tomo el numero que viene de la lista "select" y lo uso como indice para buscar su valor correspondiente dentro del listado de roles, de esa forma no se guarda un número, si no un texto con el rol mucho mas claro
-    // this.formUpdateInventories.role =
-    //   this.roles[parseInt(this.formUpdateInventories.role)];
+    this.formUpdateInventories.existence = this.formUpdateInventories.existence.toString();
+
 
     try {
       let result = this.inventoriesService
