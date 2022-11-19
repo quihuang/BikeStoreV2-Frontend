@@ -5,6 +5,7 @@ import { ClientsModel } from 'src/app/models/clients-model';
 import { SalesService } from 'src/app/services/sales.service';
 import { WorkersService } from 'src/app/services/workers.service';
 import { ClientsService } from 'src/app/services/clients.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sales',
@@ -58,12 +59,21 @@ export class SalesComponent implements OnInit {
   formCreateSale = new SalesModel();
   formUpdateSale = new SalesModel();
 
+  // para usar validadores
+  formNewSale: FormGroup;
+
   // inyectamos el servicio de sale en el constructor
   constructor(
+    private form: FormBuilder,
     private salesService: SalesService,
     private workersService: WorkersService,
-    private clientsService: ClientsService
-  ) {}
+    private clientsService: ClientsService,
+  ) {
+    this.formNewSale= form.group({
+      precio: ['', [Validators.min(0), Validators.max(1e9), Validators.required]],
+      cantidad: ['1',[Validators.min(1), Validators.max(1e3), Validators.required]]
+    })
+  }
 
   ngOnInit(): void {
     // se ejecutan los métodos para obtener los listados al momento de cargar la página
