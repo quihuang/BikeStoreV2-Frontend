@@ -11,7 +11,8 @@
     <!-- Navbar-->
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li>
                     <a class="dropdown-item" asp-page="/Index" asp-route-cerrar="1">Cerrar Session</a>
@@ -33,7 +34,8 @@
                         Reporte Gerencial
                     </a>
                     <div class="sb-sidenav-menu-heading">Opciones</div>
-                    <a class="nav-link collapsed btn-gestion-user-icon" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                    <a class="nav-link collapsed btn-gestion-user-icon" href="#" data-bs-toggle="collapse"
+                        data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon">
                             <i class="fas fa-user fa-fw"></i>
                         </div>
@@ -42,7 +44,8 @@
                             <i class="fas fa-angle-down"></i>
                         </div>
                     </a>
-                    <div class="collapse btn-gestion-user-icon" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                    <div class="collapse btn-gestion-user-icon" id="collapseLayouts" aria-labelledby="headingOne"
+                        data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" id="btn-trabajador" [routerLink]="workers">Gestionar Trabajador</a>
                             <a class="nav-link" id="btn-cliente" [routerLink]="clients">Gestionar Clientes</a>
@@ -54,7 +57,7 @@
                         </div>
                         Gestión de Ventas
                     </a>
-                    <a id="btn-inventario" class="nav-link" asp-page="/GestionInventario/Inventario">
+                    <a id="btn-inventario" class="nav-link" [routerLink]="inventories">
                         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                         Gestión de Inventario
                     </a>

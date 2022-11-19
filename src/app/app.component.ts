@@ -11,4 +11,5 @@ export class AppComponent {
   clients = '/clients';
   workers = '/workers';
   sales = '/sales';
+  inventories = '/inventories';
 }

@@ -7,7 +7,7 @@ import { SalesModel } from '../models/sales-model';
 })
 export class SalesService {
 
-  url = 'http://127.0.0.1:3000/sales';
+  url = 'http://127.0.0.1:3000/sale';
 
 
   constructor(private http: HttpClient) { }

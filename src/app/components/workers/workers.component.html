@@ -9,10 +9,12 @@
     </div>
 
     <div class="containerBottons">
-        <button type="button" id="btn-delete" class="btn btn-primary btn-crud" [hidden]="hiddenProperty" (click)="deleteWorker()">
+        <button type="button" id="btn-delete" class="btn btn-primary btn-crud" [hidden]="hiddenProperty"
+            (click)="deleteWorker()">
             Eliminar
         </button>
-        <button type="button" id="btn-update" class="btn btn-primary btn-crud" data-toggle="modal" data-target="#ModalActualizar" [hidden]="hiddenProperty">
+        <button type="button" id="btn-update" class="btn btn-primary btn-crud" data-toggle="modal"
+            data-target="#ModalActualizar" [hidden]="hiddenProperty">
             Editar
         </button>
         <button type="button" id="btn-create" class="btn btn-primary " data-toggle="modal" data-target="#ModalCrear">
@@ -21,7 +23,8 @@
     </div>
 
     <!-- ModalCrear -->
-    <div class="modal fade" id="ModalCrear" tabindex="-1" role="dialog" aria-labelledby="ModalCrearLabel" aria-hidden="true">
+    <div class="modal fade" id="ModalCrear" tabindex="-1" role="dialog" aria-labelledby="ModalCrearLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -36,59 +39,80 @@
                             <form method="post" class="needs-validation" novalidate>
                                 <div class="form-group">
                                     <label for="formCreateWorker.typeDocument">Tipo de documento</label>
-                                    <input type="text" [(ngModel)]="formCreateWorker.typeDocument" name="formCreateWorker.typeDocument" id="formCreateWorker.typeDocument" class="form-control" placeholder="Ingrese su tipo de documento" aria-describedby="invalid-feedback" minlength="2" maxlength="50"
-                                        required>
+                                    <input type="text" [(ngModel)]="formCreateWorker.typeDocument"
+                                        name="formCreateWorker.typeDocument" id="formCreateWorker.typeDocument"
+                                        class="form-control" placeholder="Ingrese su tipo de documento"
+                                        aria-describedby="invalid-feedback" minlength="2" maxlength="50" required>
                                     <div class="invalid-feedback">
                                         Ingrese el tipo de documento.
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="formCreateWorker.numDocument">Número de identificación</label>
-                                    <input type="number" [(ngModel)]="formCreateWorker.numDocument" name="formCreateWorker.numDocument" id="formCreateWorker.numDocument" class="form-control" placeholder="Ingrese su número de identificación" aria-describedby="invalid-feedback" minlength="3"
-                                        maxlength="50" required>
+                                    <input type="number" [(ngModel)]="formCreateWorker.numDocument"
+                                        name="formCreateWorker.numDocument" id="formCreateWorker.numDocument"
+                                        class="form-control" placeholder="Ingrese su número de identificación"
+                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
                                     <div class="invalid-feedback">
                                         Ingrese el número de identificación.
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="formCreateWorker.name">Nombres</label>
-                                    <input type="text" [(ngModel)]="formCreateWorker.name" name="formCreateWorker.name" id="formCreateWorker.name" class="form-control" placeholder="Ingrese el nombre" aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <input type="text" [(ngModel)]="formCreateWorker.name" name="formCreateWorker.name"
+                                        id="formCreateWorker.name" class="form-control" placeholder="Ingrese el nombre"
+                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
                                     <div class="invalid-feedback">
                                         Ingrese el nombre.
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="formCreateWorker.lastName">Apellidos</label>
-                                    <input type="text" [(ngModel)]="formCreateWorker.lastName" name="formCreateWorker.lastName" id="formCreateWorker.lastName" class="form-control" placeholder="Ingrese el apellido" aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <input type="text" [(ngModel)]="formCreateWorker.lastName"
+                                        name="formCreateWorker.lastName" id="formCreateWorker.lastName"
+                                        class="form-control" placeholder="Ingrese el apellido"
+                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
                                     <div class="invalid-feedback">
                                         Ingrese el apellido.
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="formCreateWorker.phoneNumber">Número de Teléfono</label>
-                                    <input type="number" [(ngModel)]="formCreateWorker.phoneNumber" name="formCreateWorker.phoneNumber" id="formCreateWorker.phoneNumber" class="form-control" placeholder="Ingrese el número de teléfono Ej. 320xxxxxxx" aria-describedby="invalid-feedback" min="3000000000"
-                                        max="3999999999" step="1" required>
+                                    <input type="number" [(ngModel)]="formCreateWorker.phoneNumber"
+                                        name="formCreateWorker.phoneNumber" id="formCreateWorker.phoneNumber"
+                                        class="form-control" placeholder="Ingrese el número de teléfono Ej. 320xxxxxxx"
+                                        aria-describedby="invalid-feedback" min="3000000000" max="3999999999" step="1"
+                                        required>
                                     <div class="invalid-feedback">
                                         Ingrese el número de teléfono.
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="formCreateWorker.email">Email</label>
-                                    <input type="email" [(ngModel)]="formCreateWorker.email" name="formCreateWorker.email" id="formCreateWorker.email" class="form-control" placeholder="Ingrese el email" aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <input type="email" [(ngModel)]="formCreateWorker.email"
+                                        name="formCreateWorker.email" id="formCreateWorker.email" class="form-control"
+                                        placeholder="Ingrese el email" aria-describedby="invalid-feedback" minlength="3"
+                                        maxlength="50" required>
                                     <div class="invalid-feedback">
                                         Ingrese el email.
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="formCreateWorker.address">Dirección</label>
-                                    <input type="text" [(ngModel)]="formCreateWorker.address" name="formCreateWorker.address" id="formCreateWorker.address" class="form-control" placeholder="Ingrese dirección" aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <input type="text" [(ngModel)]="formCreateWorker.address"
+                                        name="formCreateWorker.address" id="formCreateWorker.address"
+                                        class="form-control" placeholder="Ingrese dirección"
+                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
                                     <div class="invalid-feedback">
                                         Ingrese la dirección.
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="formCreateWorker.userName">Nombre de Usuario</label>
-                                    <input type="text" [(ngModel)]="formCreateWorker.userName" name="formCreateWorker.userName" id="formCreateWorker.userName" class="form-control" placeholder="Ingrese el Nombre usuario" aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <input type="text" [(ngModel)]="formCreateWorker.userName"
+                                        name="formCreateWorker.userName" id="formCreateWorker.userName"
+                                        class="form-control" placeholder="Ingrese el Nombre usuario"
+                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
                                     <div class="invalid-feedback">
                                         Ingrese el nombre de usuario.
                                     </div>
@@ -105,7 +129,9 @@
                                 </div> -->
                                 <div class="form-group">
                                     <label for="formCreateWorker.role">Rol</label>
-                                    <select [(ngModel)]="formCreateWorker.role" name="formCreateWorker.role" id="formCreateWorker.role" class="form-select form-control" aria-label="Default select example" required>
+                                    <select [(ngModel)]="formCreateWorker.role" name="formCreateWorker.role"
+                                        id="formCreateWorker.role" class="form-select form-control"
+                                        aria-label="Default select example" required>
                                         <option value="" selected>Seleccionar...</option>
                                         <option *ngFor="let rol of roles; index as i" value="{{i}}">{{ rol }}</option>
                                     </select>
@@ -115,14 +141,18 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="formCreateWorker.salary">Salario</label>
-                                    <input type="number" [(ngModel)]="formCreateWorker.salary" name="formCreateWorker.salary" id="formCreateWorker.salary" class="form-control" placeholder="Ingrese salario" aria-describedby="invalid-feedback" minlength="3" maxlength="50" step="1" required>
+                                    <input type="number" [(ngModel)]="formCreateWorker.salary"
+                                        name="formCreateWorker.salary" id="formCreateWorker.salary" class="form-control"
+                                        placeholder="Ingrese salario" aria-describedby="invalid-feedback" minlength="3"
+                                        maxlength="50" step="1" required>
                                     <div class="invalid-feedback">
                                         Ingrese un número con el salario.
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="button" class="btn btn-primary" id="btn-create-modal" (click)="createWorker()">Crear</button>
+                                    <button type="button" class="btn btn-primary" id="btn-create-modal"
+                                        (click)="createWorker()">Crear</button>
                                 </div>
                             </form>
                         </div>
@@ -133,7 +163,8 @@
     </div>
 
     <!-- ModalActualizar -->
-    <div class="modal fade" id="ModalActualizar" tabindex="-1" aria-labelledby="ModalActualizarLabel" aria-hidden="true">
+    <div class="modal fade" id="ModalActualizar" tabindex="-1" aria-labelledby="ModalActualizarLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -146,76 +177,105 @@
                     <div class="row">
                         <div class="col">
                             <form id="formEditar" class="needs-validation" novalidate>
-                                <input type="number" [(ngModel)]="formUpdateWorker.id" name="formUpdateWorker.id" id="formUpdateWorker.id" class="form-control" readonly hidden>
+
+                                <input type="hidden" [(ngModel)]="formUpdateWorker.id" name="formUpdateWorker.id"
+                                    id="formUpdateWorker.id" class="form-control" readonly>
+
                                 <div class="form-group">
                                     <label for="formUpdateWorker.typeDocument">Tipo de documento</label>
-                                    <input type="text" [(ngModel)]="formUpdateWorker.typeDocument" name="formUpdateWorker.typeDocument" id="formUpdateWorker.typeDocument" class="form-control" placeholder="Ingrese su tipo de documento" aria-describedby="invalid-feedback" minlength="2" maxlength="50"
-                                        required>
+                                    <input type="text" [(ngModel)]="formUpdateWorker.typeDocument"
+                                        name="formUpdateWorker.typeDocument" id="formUpdateWorker.typeDocument"
+                                        class="form-control" placeholder="Ingrese su tipo de documento"
+                                        aria-describedby="invalid-feedback" minlength="2" maxlength="50" required>
                                     <div class="invalid-feedback">
                                         Ingrese el tipo de documento.
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="formUpdateWorker.numDocument">Número de identificación</label>
-                                    <input type="number" [(ngModel)]="formUpdateWorker.numDocument" name="formUpdateWorker.numDocument" id="formUpdateWorker.numDocument" class="form-control" placeholder="Ingrese su número de identificación" aria-describedby="invalid-feedback" minlength="3"
-                                        maxlength="50" required>
+                                    <input type="number" [(ngModel)]="formUpdateWorker.numDocument"
+                                        name="formUpdateWorker.numDocument" id="formUpdateWorker.numDocument"
+                                        class="form-control" placeholder="Ingrese su número de identificación"
+                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
                                     <div class="invalid-feedback">
                                         Ingrese el número de identificación.
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="formUpdateWorker.name">Nombres</label>
-                                    <input type="text" [(ngModel)]="formUpdateWorker.name" name="formUpdateWorker.name" id="formUpdateWorker.name" class="form-control" placeholder="Ingrese el nombre" aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <input type="text" [(ngModel)]="formUpdateWorker.name" name="formUpdateWorker.name"
+                                        id="formUpdateWorker.name" class="form-control" placeholder="Ingrese el nombre"
+                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
                                     <div class="invalid-feedback">
                                         Ingrese el Nombre.
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="formUpdateWorker.lastName">Apellidos</label>
-                                    <input type="text" [(ngModel)]="formUpdateWorker.lastName" name="formUpdateWorker.lastName" id="formUpdateWorker.lastName" class="form-control" placeholder="Ingrese el apellido" aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <input type="text" [(ngModel)]="formUpdateWorker.lastName"
+                                        name="formUpdateWorker.lastName" id="formUpdateWorker.lastName"
+                                        class="form-control" placeholder="Ingrese el apellido"
+                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
                                     <div class="invalid-feedback">
                                         Ingrese el Apellido.
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="formUpdateWorker.phoneNumber">Número de Teléfono</label>
-                                    <input type="number" [(ngModel)]="formUpdateWorker.phoneNumber" name="formUpdateWorker.phoneNumber" id="formUpdateWorker.phoneNumber" class="form-control" placeholder="Ingrese el número de teléfono Ej. 320xxxxxxx" aria-describedby="invalid-feedback" min="3000000000"
-                                        max="3999999999" step="1" required>
+                                    <input type="number" [(ngModel)]="formUpdateWorker.phoneNumber"
+                                        name="formUpdateWorker.phoneNumber" id="formUpdateWorker.phoneNumber"
+                                        class="form-control" placeholder="Ingrese el número de teléfono Ej. 320xxxxxxx"
+                                        aria-describedby="invalid-feedback" min="3000000000" max="3999999999" step="1"
+                                        required>
                                     <div class="invalid-feedback">
                                         Ingrese el número de teléfono.
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="formUpdateWorker.email">Email</label>
-                                    <input type="email" [(ngModel)]="formUpdateWorker.email" name="formUpdateWorker.email" id="formUpdateWorker.email" class="form-control" placeholder="Ingrese el email" aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <input type="email" [(ngModel)]="formUpdateWorker.email"
+                                        name="formUpdateWorker.email" id="formUpdateWorker.email" class="form-control"
+                                        placeholder="Ingrese el email" aria-describedby="invalid-feedback" minlength="3"
+                                        maxlength="50" required>
                                     <div class="invalid-feedback">
                                         Ingrese el email.
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="formUpdateWorker.address">Dirección</label>
-                                    <input type="text" [(ngModel)]="formUpdateWorker.address" name="formUpdateWorker.address" id="formUpdateWorker.address" class="form-control" placeholder="Ingrese la dirección" aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <input type="text" [(ngModel)]="formUpdateWorker.address"
+                                        name="formUpdateWorker.address" id="formUpdateWorker.address"
+                                        class="form-control" placeholder="Ingrese la dirección"
+                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
                                     <div class="invalid-feedback">
                                         Ingrese la dirección.
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="formUpdateWorker.userName">Nombre de Usuario</label>
-                                    <input type="text" [(ngModel)]="formUpdateWorker.userName" name="formUpdateWorker.userName" id="formUpdateWorker.userName" class="form-control" placeholder="Ingrese el Nombre usuario" aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <input type="text" [(ngModel)]="formUpdateWorker.userName"
+                                        name="formUpdateWorker.userName" id="formUpdateWorker.userName"
+                                        class="form-control" placeholder="Ingrese el Nombre usuario"
+                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
                                     <div class="invalid-feedback">
                                         Ingrese el nombre de usuario.
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="formUpdateWorker.password">Contraseña</label>
-                                    <input type="password" [(ngModel)]="formUpdateWorker.password" name="formUpdateWorker.password" id="formUpdateWorker.password" class="form-control" placeholder="Ingrese contraseña" aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
+                                    <input type="password" [(ngModel)]="formUpdateWorker.password"
+                                        name="formUpdateWorker.password" id="formUpdateWorker.password"
+                                        class="form-control" placeholder="Ingrese contraseña"
+                                        aria-describedby="invalid-feedback" minlength="3" maxlength="50" required>
                                     <div class="invalid-feedback">
                                         Ingrese una contraseña fuerte.
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="formUpdateWorker.role">Rol</label>
-                                    <select [(ngModel)]="formUpdateWorker.role" name="formUpdateWorker.role" id="formUpdateWorker.role" class="form-select form-control" aria-label="Default select example" required>
+                                    <select [(ngModel)]="formUpdateWorker.role" name="formUpdateWorker.role"
+                                        id="formUpdateWorker.role" class="form-select form-control"
+                                        aria-label="Default select example" required>
                                         <option value="" selected>Seleccionar...</option>
                                         <option *ngFor="let rol of roles; index as i" value="{{i}}">{{ rol }}</option>
                                     </select>
@@ -225,14 +285,18 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="formUpdateWorker.salary">Salario</label>
-                                    <input type="number" [(ngModel)]="formUpdateWorker.salary" name="formUpdateWorker.salary" id="formUpdateWorker.salary" class="form-control" placeholder="Ingrese salario" aria-describedby="invalid-feedback" minlength="3" maxlength="50" step="1" required>
+                                    <input type="number" [(ngModel)]="formUpdateWorker.salary"
+                                        name="formUpdateWorker.salary" id="formUpdateWorker.salary" class="form-control"
+                                        placeholder="Ingrese salario" aria-describedby="invalid-feedback" minlength="3"
+                                        maxlength="50" step="1" required>
                                     <div class="invalid-feedback">
                                         Ingrese un número con el salario.
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="button" id="btn-update-modal" (click)="updateWorker()" class="btn btn-primary">Actualizar</button>
+                                    <button type="button" id="btn-update-modal" (click)="updateWorker()"
+                                        class="btn btn-primary">Actualizar</button>
                                 </div>
                             </form>
                         </div>
