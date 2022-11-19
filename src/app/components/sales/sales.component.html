@@ -36,7 +36,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col">
-                            <form method="post" class="needs-validation" novalidate>
+                            <form method="post" class="needs-validation" novalidate [formGroup]="formNewSale">
 
                                 <div class="form-group">
                                     <!-- formCreateSale se usa para capturar el dato
@@ -86,7 +86,7 @@
                                     <!-- productName se usa para capturar el dato y
                                         inventoryList se usa para mostrar el listado de todos los productos-->
                                     <label for="formCreateSale.salePrice">Precio</label>
-                                    <input type="number" [(ngModel)]="formCreateSale.salePrice" name="formCreateSale.salePrice" id="formCreateSale.salePrice" class="form-control" placeholder="Ingrese el precio del producto" aria-describedby="invalid-feedback" minlength="1" step="1" required>
+                                    <input type="number" [(ngModel)]="formCreateSale.salePrice" formControlName="precio" name="formCreateSale.salePrice" id="formCreateSale.salePrice" class="form-control" placeholder="Ingrese el precio del producto" aria-describedby="invalid-feedback" minlength="1" step="1" required>
                                     <div class="invalid-feedback">
                                         Ingrese el precio de producto vendido.
                                     </div>
@@ -94,7 +94,7 @@
 
                                 <div class="form-group">
                                     <label for="formCreateSale.productQuantity">Cantidad Producto</label>
-                                    <input type="number" [(ngModel)]="formCreateSale.productQuantity" name="formCreateSale.productQuantity" id="formCreateSale.productQuantity" class="form-control" placeholder="Ingrese la cantidad del producto" aria-describedby="invalid-feedback" minlength="1"
+                                    <input type="number" [(ngModel)]="formCreateSale.productQuantity" formControlName="cantidad" name="formCreateSale.productQuantity" id="formCreateSale.productQuantity" class="form-control" placeholder="Ingrese la cantidad del producto" aria-describedby="invalid-feedback" minlength="1"
                                         step="1" required>
                                     <div class="invalid-feedback">
                                         Ingrese la cantidad de producto vendido.
@@ -103,7 +103,7 @@
 
                                 <div class="modal-footer">
                                     <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="button" class="btn btn-primary" id="btn-create-modal" (click)="createSale()">Crear</button>
+                                    <button type="button" class="btn btn-primary" id="btn-create-modal" [disabled]="!formNewSale.valid" (click)="createSale()">Crear</button>
                                 </div>
                             </form>
                         </div>

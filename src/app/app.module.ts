@@ -8,7 +8,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ManagementReportComponent } from './components/management-report/management-report.component';
 import { ClientsComponent } from './components/clients/clients.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
 import { WorkersComponent } from './components/workers/workers.component';
 import { SalesComponent } from './components/sales/sales.component';
@@ -28,7 +28,8 @@ import { SalesComponent } from './components/sales/sales.component';
     DataTablesModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
