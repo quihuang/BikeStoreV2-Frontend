@@ -36,7 +36,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col">
-                            <form method="post" class="needs-validation" novalidate [formGroup]="formNewSale">
+                            <form method="post" class="needs-validation" novalidate >
 
                                 <div class="form-group">
                                     <label for="formCreateWorker.workerName">Vendedor</label>
@@ -101,7 +101,7 @@
 
                                 <div class="modal-footer">
                                     <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="button" class="btn btn-primary" id="btn-create-modal" [disabled]="!formNewSale.valid" (click)="createSale()">Crear</button>
+                                    <button type="button" class="btn btn-primary" id="btn-create-modal" (click)="createSale()">Crear</button>
                                 </div>
                             </form>
                         </div>
