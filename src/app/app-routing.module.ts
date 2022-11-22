@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'workers', component: WorkersComponent },
   { path: 'sales', component: SalesComponent },
   { path: 'inventories', component: InventoriesComponent },
+  { path: 'login', loadChildren: () => import('./modules/login/login.module').then((x)=>x.LoginModule), },
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent },
 ];
 

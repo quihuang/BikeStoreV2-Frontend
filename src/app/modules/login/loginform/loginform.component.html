@@ -1,0 +1,11 @@
+<div class="container">
+    <form [formGroup]="formularioLogin">
+        <br>
+        <h2>Login</h2>
+        <label >Email</label><br><input formControlName="email" type="text" name="" id="">
+        <br> <br>
+        <label>Contraseña</label><br><input formControlName="password" type="password" name="" id="">
+        <br>
+        <button class="btn btn-primary" (click)="loginFn()" [disabled]="formularioLogin.invalid">Ingresar</button>
+    </form>
+</div>
